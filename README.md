@@ -1,8 +1,16 @@
 
 # GeoLog
 
-Somos uma plataforma de apresentação de dados geográficos de todos os países, onde você vai ter todas as informações relevantes sobre cada um deles.
+Somos uma plataforma de apresentação de dados geográficos de todos os países, onde você vai ter todas as informações relevantes sobre cada um deles:
 
+- Área
+- Localização por região e sub-região
+- Línguas faladas
+- Unidade monetária
+- Capital(is)
+- Informações históricas
+
+E muito mais...
 
 ## Autores
 
