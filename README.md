@@ -18,6 +18,10 @@ E muito mais...
 - [@mibrahimfm](https://www.github.com/mibrahimfm) - Backend
 - [@diegodrc](https://www.github.com/diegodrc) - Frontend
 - [@diogoneiss](https://www.github.com/diogoneiss) - Backend
+
+## Backlog
+
+- [Trello](https://trello.com/b/f7WgzxGJ/geolog)
  
 ## Tecnologias
 
