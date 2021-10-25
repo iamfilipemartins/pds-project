@@ -14,10 +14,10 @@ E muito mais...
 
 ## Autores
 
-- [@iamfilipemartins](https://www.github.com/iamfilipemartins)
-- [@mibrahimfm](https://www.github.com/mibrahimfm)
-- [@diegodrc](https://www.github.com/diegodrc)
-- [@diogoneiss](https://www.github.com/diogoneiss)
+- [@iamfilipemartins](https://www.github.com/iamfilipemartins) - Frontend
+- [@mibrahimfm](https://www.github.com/mibrahimfm) - Backend
+- [@diegodrc](https://www.github.com/diegodrc) - Frontend
+- [@diogoneiss](https://www.github.com/diogoneiss) - Backend
  
 ## Tecnologias
 
