@@ -12,6 +12,8 @@ Somos uma plataforma de apresentação de dados geográficos de todos os países
 
 E muito mais...
 
+Repositório com o código backend e banco de dados disponível no seguinte [link](https://github.com/diogoneiss/geolog-backend)
+
 ## Autores
 
 - [@iamfilipemartins](https://www.github.com/iamfilipemartins) - Frontend
