@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactTooltip from 'react-tooltip';
 import logo from './logo.svg';
 import './App.css';
+import MapChart from './modules/map/MapChart';
 
 const App = (): any => {
+  const [content, setContent] = useState('');
   return (
     <div className="App">
       <header className="App-header">
@@ -14,6 +17,8 @@ const App = (): any => {
           Learn React
         </a>
       </header>
+      <MapChart setTooltipContent={setContent} />
+      <ReactTooltip>{content}</ReactTooltip>
     </div>
   );
 };
