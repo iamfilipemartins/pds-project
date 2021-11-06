@@ -105,7 +105,7 @@ export const countryNames = [
     "sigla" : "BB"
   },
   { "gentilico" : "bielo-russa",
-    "nome_pais" : "Belarus",
+    "nome_pais" : "Bielorrúsia",
     "nome_pais_int" : "Belarus",
     "sigla" : "BY"
   },
@@ -136,7 +136,7 @@ export const countryNames = [
   },
   { "gentilico" : "bósnia",
     "nome_pais" : "Bósnia-Herzegóvina",
-    "nome_pais_int" : "Bosnia & Herzegovina",
+    "nome_pais_int" : "Bosnia and Herz.",
     "sigla" : "BA"
   },
   { "gentilico" : "betchuana",
@@ -229,6 +229,11 @@ export const countryNames = [
     "nome_pais_int" : "Cyprus",
     "sigla" : "CY"
   },
+  { "gentilico" : "cipriota",
+    "nome_pais" : "Norte do Chipre",
+    "nome_pais_int" : "N. Cyprus",
+    "sigla" : "CY"
+  },
   { "gentilico" : "cingapuriana",
     "nome_pais" : "Cingapura",
     "nome_pais_int" : "Singapore",
@@ -261,7 +266,7 @@ export const countryNames = [
   },
   { "gentilico" : "marfinense",
     "nome_pais" : "Costa do Marfim",
-    "nome_pais_int" : "Côte d¿Ivoire",
+    "nome_pais_int" : "Côte d'Ivoire",
     "sigla" : "CI"
   },
   { "gentilico" : "costarriquenha",
@@ -346,7 +351,7 @@ export const countryNames = [
   },
   { "gentilico" : "norte-americana",
     "nome_pais" : "Estados Unidos",
-    "nome_pais_int" : "United States",
+    "nome_pais_int" : "United States of America",
     "sigla" : "US"
   },
   { "gentilico" : "estoniana",
@@ -377,6 +382,11 @@ export const countryNames = [
   { "gentilico" : "francesa",
     "nome_pais" : "França",
     "nome_pais_int" : "France",
+    "sigla" : "FR"
+  },
+  { "gentilico" : "francesa",
+    "nome_pais" : "Terras Austrais e Antárticas Francesa",
+    "nome_pais_int" : "Fr. S. Antarctic Lands",
     "sigla" : "FR"
   },
   { "gentilico" : "gabonesa",
@@ -596,7 +606,7 @@ export const countryNames = [
   },
   { "gentilico" : "salomônico",
     "nome_pais" : "Ilhas Salomão",
-    "nome_pais_int" : "Solomon Islands",
+    "nome_pais_int" : "Solomon Is.",
     "sigla" : "SB"
   },
   { "gentilico" : "seichelense",
@@ -986,17 +996,17 @@ export const countryNames = [
   },
   { "gentilico" : "centro-africana",
     "nome_pais" : "República Centro-Africana",
-    "nome_pais_int" : "Central African Republic",
+    "nome_pais_int" : "Central African Rep.",
     "sigla" : "CF"
   },
   { "gentilico" : "congolesa",
     "nome_pais" : "República Democrática do Congo",
-    "nome_pais_int" : "Congo (DRC)",
+    "nome_pais_int" : "Dem. Rep. Congo",
     "sigla" : "CD"
   },
   { "gentilico" : "dominicana",
     "nome_pais" : "República Dominicana",
-    "nome_pais_int" : "Dominican Republic",
+    "nome_pais_int" : "Dominican Rep.",
     "sigla" : "DO"
   },
   { "gentilico" : "tcheco",
@@ -1021,7 +1031,7 @@ export const countryNames = [
   },
   { "gentilico" : "saariano",
     "nome_pais" : "Saara Ocidental",
-    "nome_pais_int" : "Western Sahara",
+    "nome_pais_int" : "W. Sahara",
     "sigla" : "EH"
   },
   { "gentilico" : "pedro-miquelonense",
@@ -1109,6 +1119,11 @@ export const countryNames = [
     "nome_pais_int" : "Somalia",
     "sigla" : "SO"
   },
+  { "gentilico" : "somali",
+    "nome_pais" : "Somalilândia",
+    "nome_pais_int" : "Somaliland",
+    "sigla" : "SO"
+  },
   { "gentilico" : "cingalesa",
     "nome_pais" : "Sri Lanka",
     "nome_pais_int" : "Sri Lanka",
@@ -1126,7 +1141,7 @@ export const countryNames = [
   },
   { "gentilico" : "sul-sudanês",
     "nome_pais" : "Sudão do Sul",
-    "nome_pais_int" : "South Sudan",
+    "nome_pais_int" : "S. Sudan",
     "sigla" : "SS"
   },
   { "gentilico" : "sueca",
