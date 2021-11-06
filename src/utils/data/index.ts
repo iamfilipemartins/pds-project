@@ -581,7 +581,7 @@ export const countryNames = [
   },
   { "gentilico" : "malvinense",
     "nome_pais" : "Ilhas Malvinas",
-    "nome_pais_int" : "Falkland Islands (Islas Malvinas)",
+    "nome_pais_int" : "Falkland Is.",
     "sigla" : "FK"
   },
   { "gentilico" : "norte-marianense",
