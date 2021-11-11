@@ -39,6 +39,8 @@
         "prettier/prettier": ["off", { "singleQuote": true }],
         "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "@typescript-eslint/no-explicit-any": "off",
+        "react/require-default-props": "off" ,
+        "react/prop-types": "off",
         "import/extensions": [
             "error",
             "ignorePackages",

@@ -36845,8 +36845,8 @@ export const mapData = {
             "GDP_MD_EST": 3600,
             "POP_YEAR": 2013,
             "GDP_YEAR": 2013,
-            "ISO_A2": "-99",
-            "ISO_A3": "-99",
+            "ISO_A2": "NCY",
+            "ISO_A3": "NCY",
             "CONTINENT": "Asia",
             "REGION_UN": "Asia",
             "SUBREGION": "Western Asia"
@@ -38348,7 +38348,7 @@ export const mapData = {
             "POP_YEAR": 2017,
             "GDP_YEAR": 2016,
             "ISO_A2": "XK",
-            "ISO_A3": "-99",
+            "ISO_A3": "XKO",
             "CONTINENT": "Europe",
             "REGION_UN": "Europe",
             "SUBREGION": "Southern Europe"
@@ -40084,8 +40084,8 @@ export const mapData = {
             "GDP_MD_EST": 12250,
             "POP_YEAR": 2013,
             "GDP_YEAR": 2013,
-            "ISO_A2": "-99",
-            "ISO_A3": "-99",
+            "ISO_A2": "SML",
+            "ISO_A3": "SML",
             "CONTINENT": "Africa",
             "REGION_UN": "Africa",
             "SUBREGION": "Eastern Africa"
