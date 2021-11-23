@@ -24,6 +24,11 @@ Repositório com o código backend e banco de dados disponível no seguinte [lin
 ## Backlog
 
 - [Trello](https://trello.com/b/f7WgzxGJ/geolog)
+
+## Linter e Formatação de código
+
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
  
 ## Tecnologias
 
