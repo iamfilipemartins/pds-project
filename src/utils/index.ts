@@ -7,7 +7,7 @@ export const getPTBRCountryName = (name: string): string => {
 
 export const colors = {
   blue: '#1E40AF',
-  background: '#F8FAFC',
+  background: '#F4F4F4',
   grey300: '#CBD5E1',
   grey400: '#94A3B8',
   grey500: '#64748B',
@@ -17,7 +17,7 @@ export const colors = {
   white: '#FFFFFF',
 };
 
-const getWindowDimensions = () => {
+const getWindowDimensions = () : any => {
   const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
@@ -25,7 +25,7 @@ const getWindowDimensions = () => {
   };
 };
 
-export const useWindowDimensions = () => {
+export const useWindowDimensions = () : any => {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
   useEffect(() => {

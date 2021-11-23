@@ -5,9 +5,14 @@ export interface Props {
   width: number;
 }
 
+export const Logo = styled.img``;
+
 export const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 2em;
+  margin-left: 24px;
+  letter-spacing: 1px;
   color: ${colors.white};
 `;
 
@@ -29,7 +34,6 @@ export const SearchContainer = styled.div.attrs((props: Props) => ({
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
-  padding: 8px;
 `;
 
 export const AppbarContainer = styled.div.attrs((props: Props) => ({
@@ -45,11 +49,21 @@ export const AppbarContainer = styled.div.attrs((props: Props) => ({
   padding: 16px;
 `;
 
-export const StockContainer = styled.div.attrs((props: Props) => ({
+export const LogoContainer = styled.div.attrs((props: Props) => ({
   width: props.width,
 }))<Props>`
   display: flex;
   flex-direction: ${(props: Props): string => (props.width > 1000 ? 'row' : 'column')};
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 16px;
+`;
+
+export const ProfileContainer = styled.div.attrs((props: Props) => ({
+  width: props.width,
+}))<Props>`
+  display: flex;
+  flex-direction: ${(props: Props): string => (props.width > 1000 ? 'row' : 'column')};
+  justify-content: space-between;
   align-items: center;
 `;

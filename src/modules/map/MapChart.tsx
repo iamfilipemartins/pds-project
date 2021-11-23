@@ -1,7 +1,8 @@
 import React, { memo, useState } from 'react';
-import { ZoomableGroup, ComposableMap, Geographies, Geography } from 'react-simple-maps';
-import { getPTBRCountryName } from '../../utils';
+import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
+import { colors, getPTBRCountryName } from '../../utils';
 import { mapData } from '../../utils/data';
+import Container from './styles';
 
 interface Props {
   setTooltipContent: any;
@@ -24,9 +25,12 @@ const MapChart = ({ setTooltipContent, onClick, highlighted }: Props) => {
 
   const handleOnClick = (value: any) => (onClick ? onClick(value) : null);
   return (
-    <>
-      <ComposableMap data-tip="" projectionConfig={{ scale: 100 }}>
-        <ZoomableGroup>
+    <Container>
+      <ComposableMap 
+        data-tip="" 
+        projectionConfig={{ scale: 140 }}
+        height={400}
+      >
           <Geographies geography={mapData}>
             {({ geographies }: any) =>
               geographies.map((geo: any) => {
@@ -49,33 +53,25 @@ const MapChart = ({ setTooltipContent, onClick, highlighted }: Props) => {
                       setTooltipContent('');
                       setCountrySelected('');
                     }}
-                    fill={isHighlighted ? '#F53' : '#D6D6DA'}
-                    style={
-                      !isHighlighted
-                        ? {
-                            default: {
-                              fill: '#D6D6DA',
-                              outline: 'none',
-                            },
-                            hover: {
-                              fill: '#F53',
-                              outline: 'none',
-                            },
-                            pressed: {
-                              fill: '#E42',
-                              outline: 'none',
-                            },
-                          }
-                        : {}
-                    }
+                    fill={isHighlighted ? colors.orange : colors.grey400}
+                    style={{
+                      default: {
+                          outline: 'none'
+                      },
+                      hover: {
+                          outline: 'none'
+                      },
+                      pressed: {
+                          outline: 'none'
+                      }
+                  }}
                   />
                 );
               })
             }
           </Geographies>
-        </ZoomableGroup>
       </ComposableMap>
-    </>
+    </Container>
   );
 };
 
