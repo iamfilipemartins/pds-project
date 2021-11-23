@@ -1,12 +1,23 @@
 import React from 'react';
 
-import { ButtonStyled } from './styles';
+import { ButtonStyled, Container } from './styles';
 
-interface Props {
-    title: string,
-    onClick(params: any): void
+export interface ButtonProps {
+  label: string;
+  onClick(params: any): void;
+  color: string;
+  backgroundColor: string;
+  border: boolean;
+}
+
+const Button: React.FC<ButtonProps> = ({ label, onClick, color, backgroundColor, border }: ButtonProps) => {
+  return (
+    <Container>
+      <ButtonStyled onClick={onClick} color={color} backgroundColor={backgroundColor} border={border}>
+        {label}
+      </ButtonStyled>
+    </Container>
+  );
 };
-
-const Button: React.FC<Props> = ({title, onClick} : Props) => <ButtonStyled onClick={onClick}>{title}</ButtonStyled>;
 
 export default Button;

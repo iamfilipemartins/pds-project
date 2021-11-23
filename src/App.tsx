@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CountryDetails from './modules/countryDetails';
 import Home from './modules/home';
 
-
 const App = (): any => {
   return (
     <div>

@@ -2,11 +2,11 @@ export const SET_COUNTRY_SELECTED = 'country/SET_COUNTRY_SELECTED';
 export const SET_COUNTRY_IBGE_DATA = 'country/SET_COUNTRY_IBGE_DATA';
 
 export interface countryAction {
-    type: string;
-    payload: string;
+  type: string;
+  payload: string;
 }
 
-export interface ICountryMapData{
+export interface ICountryMapData {
   ABBREV: string;
   CONTINENT: string;
   FORMAL_EN: string;
@@ -23,93 +23,92 @@ export interface ICountryMapData{
   SUBREGION: string;
 }
 
-export interface ICountryIBGEDataID{
+export interface ICountryIBGEDataID {
   M49: number;
-  "ISO-3166-1-ALPHA-2": string;
-  "ISO-3166-1-ALPHA-3": string;
+  'ISO-3166-1-ALPHA-2': string;
+  'ISO-3166-1-ALPHA-3': string;
 }
 
-export interface ICountryIBGEDataNome{
+export interface ICountryIBGEDataNome {
   abreviado: string;
 }
 
-export interface ICountryIBGEDataAreaUnidade{
+export interface ICountryIBGEDataAreaUnidade {
   nome: string;
-  "símbolo": string;
+  símbolo: string;
   multiplicador: number;
 }
-export interface ICountryIBGEDataArea{
+export interface ICountryIBGEDataArea {
   total: string;
   unidade: ICountryIBGEDataAreaUnidade;
 }
 
-export interface ICountryIBGEDataLocalizacaoRegiaoID{
+export interface ICountryIBGEDataLocalizacaoRegiaoID {
   M49: number;
 }
-export interface ICountryIBGEDataLocalizacaoRegiao{
+export interface ICountryIBGEDataLocalizacaoRegiao {
   id: ICountryIBGEDataLocalizacaoRegiaoID;
-  nome:string;
+  nome: string;
 }
-export interface ICountryIBGEDataLocalizacaoSubRegiaoID{
+export interface ICountryIBGEDataLocalizacaoSubRegiaoID {
   M49: number;
 }
-export interface ICountryIBGEDataLocalizacaoSubRegiao{
+export interface ICountryIBGEDataLocalizacaoSubRegiao {
   id: ICountryIBGEDataLocalizacaoSubRegiaoID;
   nome: string;
 }
-export interface ICountryIBGEDataLocalizacao{
-  regiao:ICountryIBGEDataLocalizacaoRegiao;
-  "sub-regiao":ICountryIBGEDataLocalizacaoSubRegiao;
-  "regiao-intermediaria": any;
+export interface ICountryIBGEDataLocalizacao {
+  regiao: ICountryIBGEDataLocalizacaoRegiao;
+  'sub-regiao': ICountryIBGEDataLocalizacaoSubRegiao;
+  'regiao-intermediaria': any;
 }
 
-export interface ICountryIBGEDataLinguaID{
-  "ISO-639-1": string;
-  "ISO-639-2": string;
+export interface ICountryIBGEDataLinguaID {
+  'ISO-639-1': string;
+  'ISO-639-2': string;
 }
-export interface ICountryIBGEDataLingua{
-  id:ICountryIBGEDataLinguaID;
+export interface ICountryIBGEDataLingua {
+  id: ICountryIBGEDataLinguaID;
   nome: string;
 }
-export interface ICountryIBGEDataGovernoCapital{
+export interface ICountryIBGEDataGovernoCapital {
   nome: string;
 }
-export interface ICountryIBGEDataGoverno{
+export interface ICountryIBGEDataGoverno {
   capital: ICountryIBGEDataGovernoCapital;
 }
 
-export interface ICountryIBGEDataUnidadeMonetariaID{
-  "ISO-4217-ALPHA": string;
-  "ISO-4217-NUMERICO": string;
+export interface ICountryIBGEDataUnidadeMonetariaID {
+  'ISO-4217-ALPHA': string;
+  'ISO-4217-NUMERICO': string;
 }
-export interface ICountryIBGEDataUnidadeMonetaria{
+export interface ICountryIBGEDataUnidadeMonetaria {
   id: ICountryIBGEDataUnidadeMonetariaID;
   nome: string;
 }
 
-export interface ICountryIBGEData{
+export interface ICountryIBGEData {
   id: ICountryIBGEDataID;
   nome: ICountryIBGEDataNome;
   area: ICountryIBGEDataArea;
   localizacao: ICountryIBGEDataLocalizacao;
   linguas: ICountryIBGEDataLingua[];
   governo: ICountryIBGEDataGoverno;
-  "unidades-monetarias": ICountryIBGEDataUnidadeMonetaria[];
+  'unidades-monetarias': ICountryIBGEDataUnidadeMonetaria[];
   historico: string;
 }
 
 export interface ICountrySelected {
-  mapData: ICountryMapData,
-  details?: ICountryIBGEData
+  mapData: ICountryMapData;
+  details?: ICountryIBGEData;
 }
-
 
 export const setCountrySelected = (value: ICountryMapData) => ({
   type: SET_COUNTRY_SELECTED,
   payload: value,
 });
 
-export const setCountryIbgeData= (value: ICountryIBGEData) => ({
+export const setCountryIbgeData = (value: ICountryIBGEData) => ({
   type: SET_COUNTRY_IBGE_DATA,
   payload: value,
 });

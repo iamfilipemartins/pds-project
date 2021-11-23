@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import ReactTooltip from 'react-tooltip';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import MapChart from '../map/MapChart';
 import { ICountryMapData, setCountrySelected } from '../../redux/actions/countryActions';
-
 
 const Home = (): any => {
   const [content, setContent] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
   const handleSetCountry = async (countrySelected: ICountryMapData) => {
     await dispatch(setCountrySelected(countrySelected));
-    navigate(`/details/${countrySelected.ISO_A2}`)
-  }
+    navigate(`/details/${countrySelected.ISO_A2}`);
+  };
 
   return (
     <div>
@@ -27,7 +25,7 @@ const Home = (): any => {
           Learn React
         </a>
       </header>
-      <MapChart setTooltipContent={setContent} onClick={handleSetCountry}/>
+      <MapChart setTooltipContent={setContent} onClick={handleSetCountry} />
       <ReactTooltip>{content}</ReactTooltip>
     </div>
   );
