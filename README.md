@@ -29,11 +29,15 @@ Repositório com o código backend e banco de dados disponível no seguinte [lin
 
 - [Figma](https://www.figma.com/file/mK7YIibjPYCzr5jRe81KQK/Geolog-App)
 
-## Linter e Formatação de código
+## Linter
 
 - [ESLint](https://eslint.org/)
+
+## Ferramentas auxiliares
+
 - [Prettier](https://prettier.io/)
- 
+- [Husky](https://typicode.github.io/husky/#/)
+
 ## Tecnologias
 
 **Cliente:** 
