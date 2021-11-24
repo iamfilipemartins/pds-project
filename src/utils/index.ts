@@ -17,7 +17,7 @@ export const colors = {
   white: '#FFFFFF',
 };
 
-const getWindowDimensions = () : any => {
+const getWindowDimensions = (): any => {
   const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
@@ -25,7 +25,7 @@ const getWindowDimensions = () : any => {
   };
 };
 
-export const useWindowDimensions = () : any => {
+export const useWindowDimensions = (): any => {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
   useEffect(() => {

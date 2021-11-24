@@ -34,7 +34,7 @@ const Home = (): any => {
         </ItemsHomeContainer>
         <MapChart setTooltipContent={setContent} onClick={handleSetCountry} />
         <ReactTooltip>{content}</ReactTooltip>
-      </BodyContainer>  
+      </BodyContainer>
     </Container>
   );
 };

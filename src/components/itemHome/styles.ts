@@ -17,8 +17,8 @@ export const Container = styled.div.attrs((props: Props) => ({
   background-color: ${colors.white};
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  width: ${(props: Props): number => (props.width / 6 || 256)}px;
-  height: ${(props: Props): number => props.width ? ((props.width / 6) * 3 / 4) : 192}px;
+  width: ${(props: Props): number => props.width / 6 || 256}px;
+  height: ${(props: Props): number => (props.width ? ((props.width / 6) * 3) / 4 : 192)}px;
 `;
 
 export const Logo = styled.img``;

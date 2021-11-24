@@ -26,51 +26,46 @@ const MapChart = ({ setTooltipContent, onClick, highlighted }: Props) => {
   const handleOnClick = (value: any) => (onClick ? onClick(value) : null);
   return (
     <Container>
-      <ComposableMap 
-        projection="geoMercator"
-        data-tip="" 
-        height={512}
-        projectionConfig={{ scale: 108 }}
-      >
-          <Geographies geography={mapData}>
-            {({ geographies }: any) =>
-              geographies.map((geo: any) => {
-                const isHighlighted = geo.properties.ISO_A2 === highlighted;
-                return (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    onMouseEnter={() => {
-                      const { NAME, POP_EST } = geo.properties;
-                      const namePTBR = getPTBRCountryName(NAME);
-                      setTooltipContent(`${namePTBR} — ${rounded(POP_EST)}`);
-                      setCountrySelected({
-                        ...geo.properties,
-                        NAME: namePTBR,
-                      });
-                    }}
-                    onClick={() => handleOnClick(countrySelected)}
-                    onMouseLeave={() => {
-                      setTooltipContent('');
-                      setCountrySelected('');
-                    }}
-                    fill={isHighlighted ? colors.orange : colors.grey400}
-                    style={{
-                      default: {
-                          outline: 'none'
-                      },
-                      hover: {
-                          outline: 'none'
-                      },
-                      pressed: {
-                          outline: 'none'
-                      }
+      <ComposableMap projection="geoMercator" data-tip="" height={512} projectionConfig={{ scale: 108 }}>
+        <Geographies geography={mapData}>
+          {({ geographies }: any) =>
+            geographies.map((geo: any) => {
+              const isHighlighted = geo.properties.ISO_A2 === highlighted;
+              return (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  onMouseEnter={() => {
+                    const { NAME, POP_EST } = geo.properties;
+                    const namePTBR = getPTBRCountryName(NAME);
+                    setTooltipContent(`${namePTBR} — ${rounded(POP_EST)}`);
+                    setCountrySelected({
+                      ...geo.properties,
+                      NAME: namePTBR,
+                    });
                   }}
-                  />
-                );
-              })
-            }
-          </Geographies>
+                  onClick={() => handleOnClick(countrySelected)}
+                  onMouseLeave={() => {
+                    setTooltipContent('');
+                    setCountrySelected('');
+                  }}
+                  fill={isHighlighted ? colors.orange : colors.grey400}
+                  style={{
+                    default: {
+                      outline: 'none',
+                    },
+                    hover: {
+                      outline: 'none',
+                    },
+                    pressed: {
+                      outline: 'none',
+                    },
+                  }}
+                />
+              );
+            })
+          }
+        </Geographies>
       </ComposableMap>
     </Container>
   );

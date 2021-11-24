@@ -15,7 +15,7 @@ export interface Props {
   icon: string;
 }
 
-const getIcon = (icon: string) : any => {
+const getIcon = (icon: string): any => {
   switch (icon) {
     case 'groups':
       return groups;

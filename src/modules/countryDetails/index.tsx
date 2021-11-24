@@ -14,7 +14,7 @@ const CountryDetails = (): any => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
   const { countrySelected } = useSelector((state: AppState) => state.country);
 
