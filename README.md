@@ -25,6 +25,10 @@ Repositório com o código backend e banco de dados disponível no seguinte [lin
 
 - [Trello](https://trello.com/b/f7WgzxGJ/geolog)
 
+## Protótipo
+
+- [Figma](https://www.figma.com/file/mK7YIibjPYCzr5jRe81KQK/Geolog-App)
+
 ## Linter e Formatação de código
 
 - [ESLint](https://eslint.org/)
@@ -43,6 +47,11 @@ Repositório com o código backend e banco de dados disponível no seguinte [lin
 **Banco de Dados:** 
 
 - [mongoDB](https://www.mongodb.com/pt-br)
+
+## Acesso ao sistema
+
+- [Site da plataforma](https://iamfilipemartins.github.io/pds-project/)
+
 ## Para rodar localmente
 
 Clone o projeto
