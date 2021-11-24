@@ -32,8 +32,7 @@ export interface Props {
   icon: string;
 }
 
-const getIcon = (icon: string): any => {
-  const { width } = useWindowDimensions();
+const getIcon = (icon: string, width: number): any => {
   switch (icon) {
     case 'groups':
       if (width < 500) {
@@ -107,8 +106,8 @@ const getIcon = (icon: string): any => {
 };
 
 const ItemHome: React.FC<Props> = ({ label, icon }: Props) => {
-  const iconToRender = getIcon(icon);
   const { width } = useWindowDimensions();
+  const iconToRender = getIcon(icon, width);
   return (
     <Container width={width}>
       <Logo src={iconToRender} />
