@@ -27,9 +27,10 @@ const MapChart = ({ setTooltipContent, onClick, highlighted }: Props) => {
   return (
     <Container>
       <ComposableMap 
+        projection="geoMercator"
         data-tip="" 
-        projectionConfig={{ scale: 140 }}
-        height={400}
+        height={512}
+        projectionConfig={{ scale: 108 }}
       >
           <Geographies geography={mapData}>
             {({ geographies }: any) =>
