@@ -12,6 +12,7 @@ export const colors = {
   grey400: '#94A3B8',
   grey500: '#64748B',
   grey800: '#1E293B',
+  mapItem: '#bebab8',
   orange: '#DF5413',
   textColor: '#3F3F46',
   white: '#FFFFFF',

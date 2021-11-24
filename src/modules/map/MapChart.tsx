@@ -49,7 +49,7 @@ const MapChart = ({ setTooltipContent, onClick, highlighted }: Props) => {
                     setTooltipContent('');
                     setCountrySelected('');
                   }}
-                  fill={isHighlighted ? colors.orange : colors.grey400}
+                  fill={isHighlighted ? colors.orange : colors.mapItem}
                   style={{
                     default: {
                       outline: 'none',
