@@ -10,7 +10,6 @@ export const Container = styled.div`
 
 export const BodyContainer = styled.div`
   flex: 1;
-  padding: 16px;
 `;
 
 export const ItemsHomeContainer = styled.div`

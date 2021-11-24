@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import { useWindowDimensions } from '../../utils';
-import logo from '../../utils/svg/Logo48x48.svg';
+import logo from '../../utils/svg/Logo35x35.svg';
 import { Title, Container, AppbarContainer, LogoContainer, Logo } from './styles';
 
 export interface HeaderProps {
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
       <AppbarContainer width={width}>
         <LogoContainer width={width} onClick={() => navigate('/')}>
           <Logo src={logo} />
-          <Title>Geolog</Title>
+          <Title width={width}>Geolog</Title>
         </LogoContainer>
       </AppbarContainer>
     </Container>

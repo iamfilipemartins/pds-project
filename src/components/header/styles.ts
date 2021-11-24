@@ -7,11 +7,13 @@ export interface Props {
 
 export const Logo = styled.img``;
 
-export const Title = styled.h1`
+export const Title = styled.h1.attrs((props: Props) => ({
+  width: props.width,
+}))<Props>`
   font-family: Inter;
   font-weight: bold;
-  font-size: 2em;
-  margin-left: 24px;
+  font-size: ${(props: Props): string => (props.width > 1000 ? '2em' : '1em')};
+  margin-left: ${(props: Props): number => (props.width > 1000 ? 24 : 0)}px;
   letter-spacing: 1px;
   color: ${colors.white};
 `;
@@ -46,7 +48,10 @@ export const AppbarContainer = styled.div.attrs((props: Props) => ({
   flex-direction: ${(props: Props): string => (props.width > 1000 ? 'row' : 'column')};
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: ${(props: Props): number => (props.width > 1000 ? 0 : 16)}px;
+  padding-bottom: ${(props: Props): number => (props.width > 1000 ? 0 : 16)}px;
 `;
 
 export const LogoContainer = styled.div.attrs((props: Props) => ({
@@ -56,7 +61,6 @@ export const LogoContainer = styled.div.attrs((props: Props) => ({
   flex-direction: ${(props: Props): string => (props.width > 1000 ? 'row' : 'column')};
   justify-content: space-between;
   align-items: center;
-  margin-left: 16px;
 `;
 
 export const ProfileContainer = styled.div.attrs((props: Props) => ({
