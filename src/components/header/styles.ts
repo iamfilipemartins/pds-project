@@ -48,8 +48,8 @@ export const AppbarContainer = styled.div.attrs((props: Props) => ({
   flex-direction: ${(props: Props): string => (props.width > 1000 ? 'row' : 'column')};
   justify-content: space-between;
   align-items: center;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
   padding-top: ${(props: Props): number => (props.width > 1000 ? 0 : 16)}px;
   padding-bottom: ${(props: Props): number => (props.width > 1000 ? 0 : 16)}px;
 `;
