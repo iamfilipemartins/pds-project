@@ -28,10 +28,8 @@ export const Text = styled.p.attrs((props: Props) => ({
 }))<Props>`
   font-family: Inter;
   font-weight: regular;
-  // font-size: 1em;
-  // line-height: 1.5em;
-  font-size: ${(props: Props): any => props.width > 1000 ? '1em' : '0.5em'};
-  line-height: ${(props: Props): any => props.width > 1000 ? '1.25em' : '1em'};
+  font-size: ${(props: Props): any => (props.width > 1000 ? '1em' : '0.5em')};
+  line-height: ${(props: Props): any => (props.width > 1000 ? '1.25em' : '1em')};
   color: ${colors.textColor};
 `;
 

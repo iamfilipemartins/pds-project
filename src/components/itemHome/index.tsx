@@ -33,73 +33,73 @@ export interface Props {
 }
 
 const getIcon = (icon: string): any => {
-  const {width} = useWindowDimensions();
+  const { width } = useWindowDimensions();
   switch (icon) {
     case 'groups':
-      if(width < 500){
+      if (width < 500) {
         return groups24;
-      } 
-      if(width < 1000){
+      }
+      if (width < 1000) {
         return groups48;
-      } 
-      if(width < 1250){
+      }
+      if (width < 1250) {
         return groups72;
-      } 
+      }
       return groups;
     case 'house':
-      if(width < 500){
+      if (width < 500) {
         return house24;
-      } 
-      if(width < 1000){
+      }
+      if (width < 1000) {
         return house48;
-      } 
-      if(width < 1250){
+      }
+      if (width < 1250) {
         return house72;
-      } 
+      }
       return house;
     case 'monetary':
-      if(width < 500){
+      if (width < 500) {
         return monetary24;
-      } 
-      if(width < 1000){
+      }
+      if (width < 1000) {
         return monetary48;
       }
-      if(width < 1250){
+      if (width < 1250) {
         return monetary72;
-      } 
+      }
       return monetary;
     case 'people':
-      if(width < 500){
+      if (width < 500) {
         return people24;
-      } 
-      if(width < 1000){
+      }
+      if (width < 1000) {
         return people48;
-      } 
-      if(width < 1250){
+      }
+      if (width < 1250) {
         return people72;
-      } 
+      }
       return people;
     case 'place':
-      if(width < 500){
+      if (width < 500) {
         return place24;
-      } 
-      if(width < 1000){
+      }
+      if (width < 1000) {
         return place48;
-      } 
-      if(width < 1250){
+      }
+      if (width < 1250) {
         return place72;
-      } 
+      }
       return place;
     case 'plus':
-      if(width < 500){
+      if (width < 500) {
         return plus24;
-      } 
-      if(width < 1000){
+      }
+      if (width < 1000) {
         return plus48;
-      } 
-      if(width < 1250){
+      }
+      if (width < 1250) {
         return plus72;
-      } 
+      }
       return plus;
     default:
       return logo;
