@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/pds-project/static/css/main.05e9952e.chunk.css",
-    "main.js": "/pds-project/static/js/main.af57d3b8.chunk.js",
-    "main.js.map": "/pds-project/static/js/main.af57d3b8.chunk.js.map",
+    "main.js": "/pds-project/static/js/main.6eabbd11.chunk.js",
+    "main.js.map": "/pds-project/static/js/main.6eabbd11.chunk.js.map",
     "runtime-main.js": "/pds-project/static/js/runtime-main.6c5d54d1.js",
     "runtime-main.js.map": "/pds-project/static/js/runtime-main.6c5d54d1.js.map",
     "static/js/2.d60755da.chunk.js": "/pds-project/static/js/2.d60755da.chunk.js",
@@ -11,19 +11,37 @@
     "static/css/main.05e9952e.chunk.css.map": "/pds-project/static/css/main.05e9952e.chunk.css.map",
     "static/js/2.d60755da.chunk.js.LICENSE.txt": "/pds-project/static/js/2.d60755da.chunk.js.LICENSE.txt",
     "static/media/styles.css": "/pds-project/static/media/Inter.b4c30855.ttf",
-    "static/media/Logo48x48.89db08cd.svg": "/pds-project/static/media/Logo48x48.89db08cd.svg",
+    "static/media/Logo35x35.cd4bc446.svg": "/pds-project/static/media/Logo35x35.cd4bc446.svg",
     "static/media/Logo64x64.17d4e0b8.svg": "/pds-project/static/media/Logo64x64.17d4e0b8.svg",
     "static/media/groups.a92a2c67.svg": "/pds-project/static/media/groups.a92a2c67.svg",
+    "static/media/groups24x24.81f2a369.svg": "/pds-project/static/media/groups24x24.81f2a369.svg",
+    "static/media/groups48x48.cd793a94.svg": "/pds-project/static/media/groups48x48.cd793a94.svg",
+    "static/media/groups72x72.8d7d8043.svg": "/pds-project/static/media/groups72x72.8d7d8043.svg",
     "static/media/house.97dd177f.svg": "/pds-project/static/media/house.97dd177f.svg",
+    "static/media/house24x24.ec2ab7be.svg": "/pds-project/static/media/house24x24.ec2ab7be.svg",
+    "static/media/house48x48.e73e5498.svg": "/pds-project/static/media/house48x48.e73e5498.svg",
+    "static/media/house72x72.bc1dd258.svg": "/pds-project/static/media/house72x72.bc1dd258.svg",
     "static/media/monetary.a784762e.svg": "/pds-project/static/media/monetary.a784762e.svg",
+    "static/media/monetary24x24.ebcfeab9.svg": "/pds-project/static/media/monetary24x24.ebcfeab9.svg",
+    "static/media/monetary48x48.00bcc64c.svg": "/pds-project/static/media/monetary48x48.00bcc64c.svg",
+    "static/media/monetary72x72.a112ad9a.svg": "/pds-project/static/media/monetary72x72.a112ad9a.svg",
     "static/media/people.1616f489.svg": "/pds-project/static/media/people.1616f489.svg",
+    "static/media/people24x24.88a98f8a.svg": "/pds-project/static/media/people24x24.88a98f8a.svg",
+    "static/media/people48x48.1991b530.svg": "/pds-project/static/media/people48x48.1991b530.svg",
+    "static/media/people72x72.81c0a93a.svg": "/pds-project/static/media/people72x72.81c0a93a.svg",
     "static/media/place.ed29eb12.svg": "/pds-project/static/media/place.ed29eb12.svg",
-    "static/media/plus.8bfc4c5a.svg": "/pds-project/static/media/plus.8bfc4c5a.svg"
+    "static/media/place24x24.ad1f3966.svg": "/pds-project/static/media/place24x24.ad1f3966.svg",
+    "static/media/place48x48.976dc53b.svg": "/pds-project/static/media/place48x48.976dc53b.svg",
+    "static/media/place72x72.cd7ab987.svg": "/pds-project/static/media/place72x72.cd7ab987.svg",
+    "static/media/plus.8bfc4c5a.svg": "/pds-project/static/media/plus.8bfc4c5a.svg",
+    "static/media/plus24x24.2d5b4926.svg": "/pds-project/static/media/plus24x24.2d5b4926.svg",
+    "static/media/plus48x48.a2ebb2f4.svg": "/pds-project/static/media/plus48x48.a2ebb2f4.svg",
+    "static/media/plus72x72.218972a4.svg": "/pds-project/static/media/plus72x72.218972a4.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.6c5d54d1.js",
     "static/js/2.d60755da.chunk.js",
     "static/css/main.05e9952e.chunk.css",
-    "static/js/main.af57d3b8.chunk.js"
+    "static/js/main.6eabbd11.chunk.js"
   ]
 }
