@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/pds-project/static/css/main.05e9952e.chunk.css",
+    "main.js": "/pds-project/static/js/main.af57d3b8.chunk.js",
+    "main.js.map": "/pds-project/static/js/main.af57d3b8.chunk.js.map",
+    "runtime-main.js": "/pds-project/static/js/runtime-main.6c5d54d1.js",
+    "runtime-main.js.map": "/pds-project/static/js/runtime-main.6c5d54d1.js.map",
+    "static/js/2.d60755da.chunk.js": "/pds-project/static/js/2.d60755da.chunk.js",
+    "static/js/2.d60755da.chunk.js.map": "/pds-project/static/js/2.d60755da.chunk.js.map",
+    "index.html": "/pds-project/index.html",
+    "static/css/main.05e9952e.chunk.css.map": "/pds-project/static/css/main.05e9952e.chunk.css.map",
+    "static/js/2.d60755da.chunk.js.LICENSE.txt": "/pds-project/static/js/2.d60755da.chunk.js.LICENSE.txt",
+    "static/media/styles.css": "/pds-project/static/media/Inter.b4c30855.ttf",
+    "static/media/Logo48x48.89db08cd.svg": "/pds-project/static/media/Logo48x48.89db08cd.svg",
+    "static/media/Logo64x64.17d4e0b8.svg": "/pds-project/static/media/Logo64x64.17d4e0b8.svg",
+    "static/media/groups.a92a2c67.svg": "/pds-project/static/media/groups.a92a2c67.svg",
+    "static/media/house.97dd177f.svg": "/pds-project/static/media/house.97dd177f.svg",
+    "static/media/monetary.a784762e.svg": "/pds-project/static/media/monetary.a784762e.svg",
+    "static/media/people.1616f489.svg": "/pds-project/static/media/people.1616f489.svg",
+    "static/media/place.ed29eb12.svg": "/pds-project/static/media/place.ed29eb12.svg",
+    "static/media/plus.8bfc4c5a.svg": "/pds-project/static/media/plus.8bfc4c5a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c5d54d1.js",
+    "static/js/2.d60755da.chunk.js",
+    "static/css/main.05e9952e.chunk.css",
+    "static/js/main.af57d3b8.chunk.js"
+  ]
+}
