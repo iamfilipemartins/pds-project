@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/styles.css"],"names":[],"mappings":"AAAA,WACE,mBAAoB,CACpB,uFACF,CAEA,KACE,QACF","file":"main.05e9952e.chunk.css","sourcesContent":["@font-face {\r\n  font-family: 'Inter';\r\n  src: local('Inter'), url(./fonts/Inter.ttf) format('truetype');\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n}"]}

@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/pds-project/static/css/main.05e9952e.chunk.css",
-    "main.js": "/pds-project/static/js/main.9dad95f5.chunk.js",
-    "main.js.map": "/pds-project/static/js/main.9dad95f5.chunk.js.map",
+    "main.css": "/pds-project/static/css/main.10679545.chunk.css",
+    "main.js": "/pds-project/static/js/main.cc2bfbb3.chunk.js",
+    "main.js.map": "/pds-project/static/js/main.cc2bfbb3.chunk.js.map",
     "runtime-main.js": "/pds-project/static/js/runtime-main.6c5d54d1.js",
     "runtime-main.js.map": "/pds-project/static/js/runtime-main.6c5d54d1.js.map",
     "static/js/2.d60755da.chunk.js": "/pds-project/static/js/2.d60755da.chunk.js",
     "static/js/2.d60755da.chunk.js.map": "/pds-project/static/js/2.d60755da.chunk.js.map",
     "index.html": "/pds-project/index.html",
-    "static/css/main.05e9952e.chunk.css.map": "/pds-project/static/css/main.05e9952e.chunk.css.map",
+    "static/css/main.10679545.chunk.css.map": "/pds-project/static/css/main.10679545.chunk.css.map",
     "static/js/2.d60755da.chunk.js.LICENSE.txt": "/pds-project/static/js/2.d60755da.chunk.js.LICENSE.txt",
     "static/media/styles.css": "/pds-project/static/media/Inter.b4c30855.ttf",
     "static/media/Logo35x35.cd4bc446.svg": "/pds-project/static/media/Logo35x35.cd4bc446.svg",
@@ -41,7 +41,7 @@
   "entrypoints": [
     "static/js/runtime-main.6c5d54d1.js",
     "static/js/2.d60755da.chunk.js",
-    "static/css/main.05e9952e.chunk.css",
-    "static/js/main.9dad95f5.chunk.js"
+    "static/css/main.10679545.chunk.css",
+    "static/js/main.cc2bfbb3.chunk.js"
   ]
 }
