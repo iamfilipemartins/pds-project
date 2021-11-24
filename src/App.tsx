@@ -7,7 +7,7 @@ import Container from './styles';
 const App = (): any => {
   return (
     <Container>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/details/:country" element={<CountryDetails />} />
