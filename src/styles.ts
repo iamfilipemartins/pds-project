@@ -7,6 +7,7 @@ export interface Props {
 
 export const Container = styled.div`
   flex: 1;
+  height: 100vh;
   background-color: ${colors.background};
 `;
 
