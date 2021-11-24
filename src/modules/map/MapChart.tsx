@@ -12,12 +12,12 @@ interface Props {
 
 const rounded = (num: number) => {
   if (num > 1000000000) {
-    return `${Math.round(num / 100000000) / 10}Bn`;
+    return `${Math.round(num / 100000000) / 10} bilhões de habitantes`;
   }
   if (num > 1000000) {
-    return `${Math.round(num / 100000) / 10}M`;
+    return `${Math.round(num / 100000) / 10} milhões de habitantes`;
   }
-  return `${Math.round(num / 100) / 10}K`;
+  return `${Math.round(num / 100) / 10} mil habitantes`;
 };
 
 const MapChart = ({ setTooltipContent, onClick, highlighted }: Props) => {
