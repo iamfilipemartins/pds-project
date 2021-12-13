@@ -26,7 +26,7 @@ export const BottomContainer = styled.div.attrs((props: Props) => ({
 export const InputContainer = styled.div.attrs((props: InputProps) => ({
   width: props.width,
   marginRight: props.marginRight,
-  marginLeft: props.marginLeft
+  marginLeft: props.marginLeft,
 }))<InputProps>`
   flex: 1;
   width: 100%;

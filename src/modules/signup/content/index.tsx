@@ -16,7 +16,16 @@ export interface Props {
   setPassword: (value: string) => void;
 }
 
-const Content: React.FC<Props> = ({name, lastName, email, password, setName, setLastName, setEmail, setPassword }: Props) => {
+const Content: React.FC<Props> = ({
+  name,
+  lastName,
+  email,
+  password,
+  setName,
+  setLastName,
+  setEmail,
+  setPassword,
+}: Props) => {
   const { width } = useWindowDimensions();
   const navigate = useNavigate();
 

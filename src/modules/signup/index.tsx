@@ -23,7 +23,16 @@ const Signup = (): any => {
         <Logo src={logo} />
         <Title width={width}>Geolog</Title>
       </LogoContainer>
-      <Content name={name} setName={setName} lastName={lastName} setLastName={setLastName} email={email} setEmail={setEmail} password={password} setPassword={setPassword} />
+      <Content
+        name={name}
+        setName={setName}
+        lastName={lastName}
+        setLastName={setLastName}
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+      />
       <LoginContainer width={width}>
         <Text>Já possui uma conta?</Text>
         <LinkText onClick={() => navigate('/login')}>Entrar</LinkText>

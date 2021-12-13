@@ -39,7 +39,6 @@ export const Text = styled.p`
   line-height: 1.25em;
   color: ${colors.textColor};
   text-align: left;
-
 `;
 
 export const Title = styled.h1.attrs((props: Props) => ({
