@@ -27,7 +27,7 @@ export const InputStyled = styled.input`
   box-sizing: border-box;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.p`
   font-family: Inter;
   font-size: 1em;
   line-height: 1.2em;

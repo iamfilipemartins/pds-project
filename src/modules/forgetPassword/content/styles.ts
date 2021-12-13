@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../utils';
+import { colors } from '../../../utils';
 
 export interface Props {
   width: number;
@@ -38,6 +38,8 @@ export const Text = styled.p`
   font-size: 1em;
   line-height: 1.25em;
   color: ${colors.textColor};
+  text-align: left;
+
 `;
 
 export const Title = styled.h1.attrs((props: Props) => ({

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Container, Logo, LogoContainer, SignupContainer, Title, Text, LinkText } from './styles';
+import { Container, Logo, LogoContainer, LoginContainer, Title, Text, LinkText } from './styles';
 import Content from './content';
 import { useWindowDimensions } from '../../utils';
 import logo from '../../utils/svg/Logo48x48.svg';
 
-const Login = (): any => {
+const Signup = (): any => {
   const { width } = useWindowDimensions();
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -21,13 +23,13 @@ const Login = (): any => {
         <Logo src={logo} />
         <Title width={width}>Geolog</Title>
       </LogoContainer>
-      <Content email={email} setEmail={setEmail} password={password} setPassword={setPassword} />
-      <SignupContainer width={width}>
-        <Text>Ainda não possui uma conta?</Text>
-        <LinkText onClick={() => navigate('/signup')}>Clique aqui</LinkText>
-      </SignupContainer>
+      <Content name={name} setName={setName} lastName={lastName} setLastName={setLastName} email={email} setEmail={setEmail} password={password} setPassword={setPassword} />
+      <LoginContainer width={width}>
+        <Text>Já possui uma conta?</Text>
+        <LinkText onClick={() => navigate('/login')}>Entrar</LinkText>
+      </LoginContainer>
     </Container>
   );
 };
 
-export default Login;
+export default Signup;

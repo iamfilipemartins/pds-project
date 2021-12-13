@@ -33,7 +33,7 @@ export const Title = styled.h1.attrs((props: Props) => ({
   color: ${colors.black};
 `;
 
-export const SignupContainer = styled.div.attrs((props: Props) => ({
+export const LoginContainer = styled.div.attrs((props: Props) => ({
   width: props.width,
 }))<Props>`
   display: flex;

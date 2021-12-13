@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import { Container, Text, Title, BottomContainer } from './styles';
-import Input from '../input';
-import Button from '../button';
-import { colors, useWindowDimensions } from '../../utils';
+import Input from '../../../components/input';
+import Button from '../../../components/button';
+import { colors, useWindowDimensions } from '../../../utils';
 
 export interface Props {
   email: string;
@@ -12,7 +12,7 @@ export interface Props {
   setPassword: (value: string) => void;
 }
 
-const LoginContent: React.FC<Props> = ({ email, password, setEmail, setPassword }: Props) => {
+const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Props) => {
   const { width } = useWindowDimensions();
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ const LoginContent: React.FC<Props> = ({ email, password, setEmail, setPassword 
       <Input type="email" placeholder="Email" value={email} onChange={setEmail} isObrigatory />
       <Input type="password" placeholder="Senha" value={password} onChange={setPassword} isObrigatory />
       <BottomContainer width={width}>
-        <Text>Esqueceu a senha?</Text>
+        <Text onClick={() => navigate('/forget-password')}>Esqueceu a senha?</Text>
         <Button
           label="Entrar"
           onClick={handleOnClickLogin}
@@ -41,4 +41,4 @@ const LoginContent: React.FC<Props> = ({ email, password, setEmail, setPassword 
   );
 };
 
-export default LoginContent;
+export default Content;
