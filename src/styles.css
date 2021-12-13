@@ -2,9 +2,3 @@
   font-family: 'Inter';
   src: local('Inter'), url(./fonts/Inter.ttf) format('truetype');
 }
-
-body {
-  margin: 0;
-  height: 100vh;
-  background-color: #F4F4F4;
-}

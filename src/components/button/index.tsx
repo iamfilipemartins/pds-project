@@ -6,8 +6,8 @@ export interface ButtonProps {
   label: string;
   onClick(params: any): void;
   color: string;
-  backgroundColor: string;
-  border: boolean;
+  backgroundColor?: string;
+  border?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({ label, onClick, color, backgroundColor, border }: ButtonProps) => {

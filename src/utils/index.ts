@@ -8,6 +8,8 @@ export const getPTBRCountryName = (name: string): string => {
 export const colors = {
   blue: '#1E40AF',
   background: '#F4F4F4',
+  grey050: '#F8FAFC',
+  grey200: '#E2E8F0',
   grey300: '#CBD5E1',
   grey400: '#94A3B8',
   grey500: '#64748B',
@@ -16,6 +18,7 @@ export const colors = {
   orange: '#DF5413',
   textColor: '#3F3F46',
   white: '#FFFFFF',
+  black: '#000000'
 };
 
 const getWindowDimensions = (): any => {
