@@ -46,7 +46,7 @@ export const Title = styled.h1.attrs((props: Props) => ({
   font-family: Inter;
   font-size: 1.25em;
   line-height: 1.5em;
-  color: ${colors.black};
+  color: ${colors.textColor};
 `;
 
 export default Container;
