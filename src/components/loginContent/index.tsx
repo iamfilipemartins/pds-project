@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router';
 import { Container, Text, Title, BottomContainer } from './styles';
 import Input from '../input';
 import Button from '../button';
 import { colors, useWindowDimensions } from '../../utils';
 
-const LoginContent: React.FC = () => {
-  const { width } = useWindowDimensions();
+export interface Props {
+  email: string;
+  password: string;
+  setEmail: (value: string) => void;
+  setPassword: (value: string) => void;
+}
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const LoginContent: React.FC<Props> = ({ email, password, setEmail, setPassword }: Props) => {
+  const { width } = useWindowDimensions();
   const navigate = useNavigate();
 
   const handleOnClickLogin = () => {
@@ -23,7 +27,7 @@ const LoginContent: React.FC = () => {
       <Title>Login</Title>
       <Input type="email" placeholder="Email" value={email} onChange={setEmail} isObrigatory />
       <Input type="password" placeholder="Senha" value={password} onChange={setPassword} isObrigatory />
-      <BottomContainer>
+      <BottomContainer width={width}>
         <Text>Esqueceu a senha?</Text>
         <Button
           label="Entrar"

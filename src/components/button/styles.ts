@@ -18,6 +18,7 @@ export const ButtonStyled = styled.button.attrs((props: Props) => ({
   background: ${(props: Props): string => props.backgroundColor || 'transparent'};
   border: ${(props: Props): string => `1px solid ${props.border}`};
   color: ${(props: Props): string => props.color || colors.textColor};
+  font-family: Inter;
   font-size: 1em;
   margin: 8px;
   padding: 0.5em 1em;

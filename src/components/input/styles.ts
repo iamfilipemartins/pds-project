@@ -14,6 +14,7 @@ export const Container = styled.div`
 `;
 
 export const InputStyled = styled.input`
+  font-family: Inter;
   font-size: 1em;
   padding: 8px;
   background: ${colors.grey050};
