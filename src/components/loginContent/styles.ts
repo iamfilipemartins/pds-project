@@ -35,7 +35,7 @@ export const Logo = styled.img``;
 export const Text = styled.p`
   font-family: Inter;
   font-weight: regular;
-  font-size:  0.75em;
+  font-size: 0.75em;
   line-height: 1em;
   color: ${colors.textColor};
 `;

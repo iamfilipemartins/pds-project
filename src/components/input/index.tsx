@@ -4,9 +4,9 @@ import { Container, InputStyled, Title } from './styles';
 export interface Props {
   placeholder: string;
   value: string;
-  onChange: (value: any) => void
-  type?: string,
-  isObrigatory?: boolean
+  onChange: (value: any) => void;
+  type?: string;
+  isObrigatory?: boolean;
 }
 
 const Input: React.FC<Props> = ({ placeholder, value, onChange, type, isObrigatory }: Props) => {

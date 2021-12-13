@@ -18,7 +18,7 @@ export const colors = {
   orange: '#DF5413',
   textColor: '#3F3F46',
   white: '#FFFFFF',
-  black: '#000000'
+  black: '#000000',
 };
 
 const getWindowDimensions = (): any => {
