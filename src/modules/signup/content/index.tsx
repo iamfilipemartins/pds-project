@@ -39,7 +39,7 @@ const Content: React.FC<Props> = ({
   }, [name, lastName, email, password]);
 
   const handleOnClickSignup = async () => {
-    await dispatch(setSignupData({name, lastName, email, password}));
+    await dispatch(setSignupData({ name, lastName, email, password }));
     navigate('/login');
   };
 
@@ -48,10 +48,22 @@ const Content: React.FC<Props> = ({
       <Title>Criar conta</Title>
       <NameContainer width={width}>
         <InputContainer width={width} marginRight={8}>
-          <Input type="text" placeholder="Nome" value={name} onChange={(value:string) => setName(onlyLetters(value))} isObrigatory />
+          <Input
+            type="text"
+            placeholder="Nome"
+            value={name}
+            onChange={(value: string) => setName(onlyLetters(value))}
+            isObrigatory
+          />
         </InputContainer>
         <InputContainer width={width} marginLeft={8}>
-          <Input type="text" placeholder="Sobrenome" value={lastName} onChange={(value:string) => setLastName(onlyLetters(value))} isObrigatory />
+          <Input
+            type="text"
+            placeholder="Sobrenome"
+            value={lastName}
+            onChange={(value: string) => setLastName(onlyLetters(value))}
+            isObrigatory
+          />
         </InputContainer>
       </NameContainer>
       <Input type="email" placeholder="Email" value={email} onChange={setEmail} isObrigatory />

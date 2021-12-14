@@ -19,7 +19,7 @@ const Content: React.FC<Props> = ({ email, setEmail }: Props) => {
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
-    setDisabled(!(validateEmail(email)));
+    setDisabled(!validateEmail(email));
   }, [email]);
 
   const handleGoBack = () => {

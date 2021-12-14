@@ -26,8 +26,8 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
   }, [email, password]);
 
   const handleOnClickLogin = async () => {
-    if (email === 'admin' && password === 'admin') {
-      await dispatch(setLoginData({email, password}));
+    if (email === 'admin@admin.com' && password === 'admin') {
+      await dispatch(setLoginData({ email, password }));
       navigate(`/`);
     }
   };

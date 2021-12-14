@@ -17,11 +17,11 @@ const Home = (): any => {
   const { user } = useSelector((state: AppState) => state.user);
 
   useEffect(() => {
-    if(_.isEmpty(user.login)){
+    if (_.isEmpty(user.login)) {
       navigate('/login');
     }
   }, []);
-  
+
   const handleSetCountry = async (countrySelected: ICountryMapData) => {
     await dispatch(setCountrySelected(countrySelected));
     navigate(`/details/${countrySelected.ISO_A2}`);

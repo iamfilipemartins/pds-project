@@ -1,4 +1,4 @@
-import { EmptyObject } from "redux";
+import { EmptyObject } from 'redux';
 
 export const SET_LOGIN_DATA = 'user/SET_LOGIN_DATA';
 export const SET_EMAIL_RECOVERY_DATA = 'user/SET_EMAIL_RECOVERY_DATA';
@@ -22,16 +22,16 @@ export interface SignupData {
   password: string;
 }
 
-export const setLoginData = (value: LoginData) : any => ({
+export const setLoginData = (value: LoginData): any => ({
   type: SET_LOGIN_DATA,
   payload: value,
 });
 
-export const setEmailRecoveryData = (email: string) : any => ({
+export const setEmailRecoveryData = (email: string): any => ({
   type: SET_EMAIL_RECOVERY_DATA,
   payload: email,
 });
-export const setSignupData = (value: SignupData) : any=> ({
+export const setSignupData = (value: SignupData): any => ({
   type: SET_SIGNUP_DATA,
   payload: value,
 });

@@ -45,19 +45,19 @@ export const useWindowDimensions = (): any => {
   return windowDimensions;
 };
 
-export const validateEmail = (emailAdress: string) : boolean => {
+export const validateEmail = (emailAdress: string): boolean => {
   const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   if (emailAdress.match(regexEmail)) {
-    return true; 
-  } 
-  return false; 
-}
+    return true;
+  }
+  return false;
+};
 
-export const onlyNumbers = (value: string) : string => value.replace(/\D/g, "");
+export const onlyNumbers = (value: string): string => value.replace(/\D/g, '');
 
-export const onlyLetters = (value: string) : string => value.replace(/[^a-zA-Z]+/g, "");
+export const onlyLetters = (value: string): string => value.replace(/[^a-zA-Z]+/g, '');
 
-export const addDataIntoCache = (cacheName: string, response: any) : any => {
+export const addDataIntoCache = (cacheName: string, response: any): any => {
   // Converting our respons into Actual Response form
   const data = new Response(JSON.stringify(response));
 
@@ -69,8 +69,8 @@ export const addDataIntoCache = (cacheName: string, response: any) : any => {
   }
 };
 
-export const deleteSpecificCache = (cacheName: string) : any => {
-  if ("caches" in window) {
+export const deleteSpecificCache = (cacheName: string): any => {
+  if ('caches' in window) {
     caches.delete(cacheName).then((res) => {
       return res;
     });
@@ -78,8 +78,8 @@ export const deleteSpecificCache = (cacheName: string) : any => {
 };
 
 export const getCacheData = async (name: string) => {
-  const url = 'http://localhost:3000/pds-project/'
-    
+  const url = 'http://localhost:3000/pds-project/';
+
   // Opening that particular cache
   const cacheStorage = await caches.open(name);
 

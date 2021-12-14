@@ -103,12 +103,12 @@ export interface ICountrySelected {
   details?: ICountryIBGEData;
 }
 
-export const setCountrySelected = (value: ICountryMapData) : any => ({
+export const setCountrySelected = (value: ICountryMapData): any => ({
   type: SET_COUNTRY_SELECTED,
   payload: value,
 });
 
-export const setCountryIbgeData = (value: ICountryIBGEData) : any => ({
+export const setCountryIbgeData = (value: ICountryIBGEData): any => ({
   type: SET_COUNTRY_IBGE_DATA,
   payload: value,
 });

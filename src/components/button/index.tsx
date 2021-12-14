@@ -14,14 +14,20 @@ export interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ label, onClick, color, backgroundColor, border, disabled }: ButtonProps) => {
   const handleOnClick = (value: any) => {
-    if(!disabled){
+    if (!disabled) {
       onClick(value);
     }
-  }
+  };
 
   return (
     <Container>
-      <ButtonStyled onClick={handleOnClick} color={disabled ? colors.white : color} backgroundColor={disabled ? colors.grey200 : backgroundColor} border={disabled ? colors.grey200 : border} disabled={disabled}>
+      <ButtonStyled
+        onClick={handleOnClick}
+        color={disabled ? colors.white : color}
+        backgroundColor={disabled ? colors.grey200 : backgroundColor}
+        border={disabled ? colors.grey200 : border}
+        disabled={disabled}
+      >
         {label}
       </ButtonStyled>
     </Container>
