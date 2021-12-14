@@ -18,7 +18,7 @@ const Home = (): any => {
 
   useEffect(() => {
     if (_.isEmpty(user.login)) {
-      navigate('/login');
+      navigate('/login', { replace: true });
     }
   }, []);
 
