@@ -13,6 +13,8 @@ const Login = (): any => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setEmail('');
+    setPassword('');
   }, []);
 
   return (

@@ -25,7 +25,7 @@ const initialState: CountryNameState = {
     details: undefined,
   },
 };
-const countryReducer = (state: CountryNameState = initialState, action: any) => {
+const countryReducer = (state: CountryNameState = initialState, action: any) : any => {
   switch (action.type) {
     case SET_COUNTRY_SELECTED:
       return {

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import _ from 'lodash';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
 import { Container, Text, Title, BottomContainer } from './styles';
 import Input from '../../../components/input';
 import Button from '../../../components/button';
-import { colors, useWindowDimensions } from '../../../utils';
+import { colors, useWindowDimensions, validateEmail } from '../../../utils';
+import { setLoginData } from '../../../redux/actions/userActions';
 
 export interface Props {
   email: string;
@@ -14,10 +17,17 @@ export interface Props {
 
 const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Props) => {
   const { width } = useWindowDimensions();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [disabled, setDisabled] = useState(true);
 
-  const handleOnClickLogin = () => {
+  useEffect(() => {
+    setDisabled(!(validateEmail(email) && !_.isEmpty(password)));
+  }, [email, password]);
+
+  const handleOnClickLogin = async () => {
     if (email === 'admin' && password === 'admin') {
+      await dispatch(setLoginData({email, password}));
       navigate(`/`);
     }
   };
@@ -35,6 +45,7 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
           backgroundColor={colors.orange}
           color={colors.white}
           border={colors.orange}
+          disabled={disabled}
         />
       </BottomContainer>
     </Container>

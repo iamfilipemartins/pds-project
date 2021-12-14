@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import { useEffect, useState } from 'react';
 import { countryNames } from './data';
 
@@ -42,6 +43,51 @@ export const useWindowDimensions = (): any => {
   }, []);
 
   return windowDimensions;
+};
+
+export const validateEmail = (emailAdress: string) : boolean => {
+  const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (emailAdress.match(regexEmail)) {
+    return true; 
+  } 
+  return false; 
+}
+
+export const onlyNumbers = (value: string) : string => value.replace(/\D/g, "");
+
+export const onlyLetters = (value: string) : string => value.replace(/[^a-zA-Z]+/g, "");
+
+export const addDataIntoCache = (cacheName: string, response: any) : any => {
+  // Converting our respons into Actual Response form
+  const data = new Response(JSON.stringify(response));
+
+  if ('caches' in window) {
+    // Opening given cache and putting our data into it
+    caches.open(cacheName).then((cache) => {
+      cache.put('http://localhost:3000/pds-project/', data);
+    });
+  }
+};
+
+export const deleteSpecificCache = (cacheName: string) : any => {
+  if ("caches" in window) {
+    caches.delete(cacheName).then((res) => {
+      return res;
+    });
+  }
+};
+
+export const getCacheData = async (name: string) => {
+  const url = 'http://localhost:3000/pds-project/'
+    
+  // Opening that particular cache
+  const cacheStorage = await caches.open(name);
+
+  // Fetching that particular cache data
+  const cachedResponse = await cacheStorage.match(url);
+  const data = cachedResponse ? await cachedResponse.json() : [];
+
+  return data;
 };
 
 export default getPTBRCountryName;

@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import _ from 'lodash';
 import ReactTooltip from 'react-tooltip';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import MapChart from '../map/MapChart';
 import { ICountryMapData, setCountrySelected } from '../../redux/actions/countryActions';
 import Header from '../../components/header';
 import Container, { BodyContainer, ItemsHomeContainer } from './styles';
 import ItemHome from '../../components/itemHome';
+import { AppState } from '../../redux/reducers/rootReducer';
 
 const Home = (): any => {
   const [content, setContent] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { user } = useSelector((state: AppState) => state.user);
 
+  useEffect(() => {
+    if(_.isEmpty(user.login)){
+      navigate('/login');
+    }
+  }, []);
+  
   const handleSetCountry = async (countrySelected: ICountryMapData) => {
     await dispatch(setCountrySelected(countrySelected));
     navigate(`/details/${countrySelected.ISO_A2}`);

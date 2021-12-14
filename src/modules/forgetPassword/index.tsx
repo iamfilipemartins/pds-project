@@ -7,6 +7,7 @@ const ForgetPassword = (): any => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setEmail('');
   }, []);
 
   return (

@@ -15,6 +15,10 @@ const Signup = (): any => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setName('');
+    setLastName('');
+    setEmail('');
+    setPassword('');
   }, []);
 
   return (

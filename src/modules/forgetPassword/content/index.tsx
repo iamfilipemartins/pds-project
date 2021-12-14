@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
 import { Container, Text, Title, BottomContainer } from './styles';
 import Input from '../../../components/input';
 import Button from '../../../components/button';
-import { colors, useWindowDimensions } from '../../../utils';
+import { colors, useWindowDimensions, validateEmail } from '../../../utils';
+import { setEmailRecoveryData } from '../../../redux/actions/userActions';
 
 export interface Props {
   email: string;
@@ -13,13 +15,20 @@ export interface Props {
 const Content: React.FC<Props> = ({ email, setEmail }: Props) => {
   const { width } = useWindowDimensions();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    setDisabled(!(validateEmail(email)));
+  }, [email]);
 
   const handleGoBack = () => {
     navigate(`/login`);
   };
 
-  const handleSendEmail = () => {
-    navigate(`/login`);
+  const handleSendEmail = async () => {
+    await dispatch(setEmailRecoveryData(email));
+    navigate('/login');
   };
 
   return (
@@ -41,6 +50,7 @@ const Content: React.FC<Props> = ({ email, setEmail }: Props) => {
           backgroundColor={colors.orange}
           color={colors.white}
           border={colors.orange}
+          disabled={disabled}
         />
       </BottomContainer>
     </Container>
