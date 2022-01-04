@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login /> should display a blank login form, with remember me checked by default 1`] = `
+<div
+  class="sc-gsDKAQ iFzJiF"
+  data-testid="login"
+>
+  <div
+    class="sc-dkPtRN crvUag"
+    width="1024"
+  >
+    <img
+      class="sc-bdvvtL"
+    />
+    <h1
+      class="sc-hKwDye gGnQLo"
+      width="1024"
+    >
+      Geolog
+    </h1>
+  </div>
+  <div
+    class="sc-furwcr anivc"
+    width="1024"
+  >
+    <h1
+      class="sc-jrQzAO gfpuAK"
+    >
+      Login
+    </h1>
+    <div
+      class="sc-kDTinF bInWyk"
+    >
+      <p
+        class="sc-crHmcD dKnwJW"
+      >
+        Email *
+      </p>
+      <input
+        class="sc-iqseJM dhtnqU"
+        data-testid="email"
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-kDTinF bInWyk"
+    >
+      <p
+        class="sc-crHmcD dKnwJW"
+      >
+        Senha *
+      </p>
+      <input
+        class="sc-iqseJM dhtnqU"
+        data-testid="password"
+        type="password"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-iCfMLu jSwPHu"
+      width="1024"
+    >
+      <p
+        class="sc-pVTFL gVDUJb"
+      >
+        Esqueceu a senha?
+      </p>
+      <div
+        class="sc-egiyK"
+      >
+        <button
+          class="sc-bqiRlB dpOhwe"
+          color="#FFFFFF"
+          disabled=""
+        >
+          Entrar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="sc-eCImPb iCHfyu"
+    width="1024"
+  >
+    <p
+      class="sc-jRQBWg dEaWjf"
+    >
+      Ainda não possui uma conta?
+    </p>
+    <p
+      class="sc-gKclnd kKqYGw"
+    >
+      Clique aqui
+    </p>
+  </div>
+</div>
+`;
