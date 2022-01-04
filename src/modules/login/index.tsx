@@ -18,7 +18,7 @@ const Login = (): any => {
   }, []);
 
   return (
-    <Container>
+    <Container data-testid="login">
       <LogoContainer width={width}>
         <Logo src={logo} />
         <Title width={width}>Geolog</Title>
