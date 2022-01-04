@@ -36,7 +36,14 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
     <Container width={width}>
       <Title>Login</Title>
       <Input testID="email" type="email" placeholder="Email" value={email} onChange={setEmail} isObrigatory />
-      <Input testID="password" type="password" placeholder="Senha" value={password} onChange={setPassword} isObrigatory />
+      <Input
+        testID="password"
+        type="password"
+        placeholder="Senha"
+        value={password}
+        onChange={setPassword}
+        isObrigatory
+      />
       <BottomContainer width={width}>
         <Text onClick={() => navigate('/forget-password')}>Esqueceu a senha?</Text>
         <Button

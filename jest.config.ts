@@ -23,7 +23,7 @@ export default {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -82,7 +82,7 @@ export default {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    "^.+\\.svg$": "jest-svg-transformer",
+    '^.+\\.svg$': 'jest-svg-transformer',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -197,7 +197,7 @@ export default {
   preset: 'ts-jest',
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
-    "^.+\\.(js|jsx)$": "babel-jest"
+    '^.+\\.(js|jsx)$': 'babel-jest',
   },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'node'],
