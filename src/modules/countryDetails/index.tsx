@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import { useNavigate } from 'react-router-dom';
-import Flag from 'react-world-flags'
+import Flag from 'react-world-flags';
 import { ICountryMapData, setCountryDetails, setCountrySelected } from '../../redux/actions/countryActions';
 import { AppState } from '../../redux/reducers/rootReducer';
 import MapChart from '../map/MapChart';
@@ -38,7 +38,7 @@ const CountryDetails = (): any => {
       <ContentContainer width={width}>
         <NameContainer>
           <Name width={width}>{getPTBRCountryName(countrySelected.NAME)}</Name>
-          <Flag code={countrySelected.ISO_A2} height="40" width="40"/>        
+          <Flag code={countrySelected.ISO_A2} height="40" width="40" />
         </NameContainer>
         {countryDetails?.historico && <History width={width}>{countryDetails.historico}</History>}
         <InfoCountry title="População" label={roundPopulation(countrySelected.POP_EST)} />
