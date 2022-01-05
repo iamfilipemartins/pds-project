@@ -4,11 +4,12 @@ import ReactTooltip from 'react-tooltip';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MapChart from '../map/MapChart';
-import { ICountryMapData, setCountrySelected } from '../../redux/actions/countryActions';
+import { ICountryMapData, setCountryDetails, setCountrySelected } from '../../redux/actions/countryActions';
 import Header from '../../components/header';
 import Container, { BodyContainer, ItemsHomeContainer } from './styles';
 import ItemHome from '../../components/itemHome';
 import { AppState } from '../../redux/reducers/rootReducer';
+import { brazilDetails } from '../../utils/data';
 
 const Home = (): any => {
   const [content, setContent] = useState('');
@@ -24,6 +25,7 @@ const Home = (): any => {
 
   const handleSetCountry = async (countrySelected: ICountryMapData) => {
     await dispatch(setCountrySelected(countrySelected));
+    await dispatch(setCountryDetails(brazilDetails));
     navigate(`/details/${countrySelected.ISO_A2}`);
   };
 

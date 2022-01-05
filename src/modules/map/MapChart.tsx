@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
-import { colors, getPTBRCountryName } from '../../utils';
+import { colors, getPTBRCountryName, roundPopulation } from '../../utils';
 import { mapData } from '../../utils/data';
 import Container from './styles';
 
@@ -9,16 +9,6 @@ interface Props {
   onClick?: (params: any) => void;
   highlighted?: string;
 }
-
-const rounded = (num: number) => {
-  if (num > 1000000000) {
-    return `${Math.round(num / 100000000) / 10} bilhões de habitantes`;
-  }
-  if (num > 1000000) {
-    return `${Math.round(num / 100000) / 10} milhões de habitantes`;
-  }
-  return `${Math.round(num / 100) / 10} mil habitantes`;
-};
 
 const MapChart = ({ setTooltipContent, onClick, highlighted }: Props) => {
   const [countrySelected, setCountrySelected] = useState('');
@@ -38,7 +28,7 @@ const MapChart = ({ setTooltipContent, onClick, highlighted }: Props) => {
                   onMouseEnter={() => {
                     const { NAME, POP_EST } = geo.properties;
                     const namePTBR = getPTBRCountryName(NAME);
-                    setTooltipContent(`${namePTBR} — ${rounded(POP_EST)}`);
+                    setTooltipContent(`${namePTBR} — ${roundPopulation(POP_EST)}`);
                     setCountrySelected({
                       ...geo.properties,
                       NAME: namePTBR,
