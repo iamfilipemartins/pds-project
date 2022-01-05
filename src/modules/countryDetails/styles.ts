@@ -30,7 +30,7 @@ export const Name = styled.h1.attrs((props: Props) => ({
   font-weight: bold;
   font-size: ${(props: Props): string => (props.width > 1000 ? '1.5em' : '1em')};
   color: ${colors.black};
-  margin-right: 16px;
+  margin-right: 24px;
 `;
 
 export const History = styled.p.attrs((props: Props) => ({

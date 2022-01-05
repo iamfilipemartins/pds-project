@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import { useNavigate } from 'react-router-dom';
+import Flag from 'react-world-flags'
 import { ICountryMapData, setCountryDetails, setCountrySelected } from '../../redux/actions/countryActions';
 import { AppState } from '../../redux/reducers/rootReducer';
 import MapChart from '../map/MapChart';
 import Header from '../../components/header';
-import { Container, ContentContainer, Name, History, NameContainer, Flag } from './styles';
+import { Container, ContentContainer, Name, History, NameContainer } from './styles';
 import InfoCountry from '../../components/infoCountry';
-import { getFlag, getPTBRCountryName, roundPopulation, useWindowDimensions } from '../../utils';
+import { getPTBRCountryName, roundPopulation, useWindowDimensions } from '../../utils';
 import { brazilDetails } from '../../utils/data';
 
 const CountryDetails = (): any => {
@@ -31,15 +32,13 @@ const CountryDetails = (): any => {
     navigate(`/details/${countrySelectedOnMap.ISO_A2}`);
   };
 
-  const flagToRender = getFlag(countrySelected.ISO_A2);
-
   return (
     <Container>
       <Header />
       <ContentContainer width={width}>
         <NameContainer>
           <Name width={width}>{getPTBRCountryName(countrySelected.NAME)}</Name>
-          {flagToRender && <Flag src={flagToRender} />}
+          <Flag code={countrySelected.ISO_A2} height="40" width="40"/>        
         </NameContainer>
         {countryDetails?.historico && <History width={width}>{countryDetails.historico}</History>}
         <InfoCountry title="População" label={roundPopulation(countrySelected.POP_EST)} />

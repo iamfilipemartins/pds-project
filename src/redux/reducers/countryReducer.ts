@@ -10,6 +10,11 @@ type CountryNameState = {
   countryDetails: ICountryDetails;
 };
 
+type Action = {
+  type: string;
+  payload: any;
+};
+
 const initialState: CountryNameState = {
   countrySelected: {
     mapData: {
@@ -45,7 +50,7 @@ const initialState: CountryNameState = {
   },
 };
 
-const countryReducer = (state: CountryNameState = initialState, action: any): any => {
+const countryReducer = (state: CountryNameState = initialState, action: Action): any => {
   switch (action.type) {
     case SET_COUNTRY_SELECTED:
       return {
