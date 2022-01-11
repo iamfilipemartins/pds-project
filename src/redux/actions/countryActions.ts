@@ -59,8 +59,8 @@ export interface ICountryIBGEDataLocalizacaoSubRegiao {
 }
 export interface ICountryIBGEDataLocalizacao {
   regiao: ICountryIBGEDataLocalizacaoRegiao;
-  "sub_regiao": ICountryIBGEDataLocalizacaoSubRegiao;
-  "regiao_intermediaria": any;
+  subRegiao: ICountryIBGEDataLocalizacaoSubRegiao;
+  regiaoIntermediaria: any;
 }
 
 export interface ICountryIBGEDataLinguaID {

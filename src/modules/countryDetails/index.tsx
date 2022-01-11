@@ -86,7 +86,9 @@ const CountryDetails: React.FC = (): any => {
           </>
         )}
         {countryDetails?.governo && <InfoCountry title="Capital" label={countryDetails.governo} />}
-        {countryDetails?.localizacao && <InfoCountry title="Região" label={countryDetails.localizacao} />}
+        {countryDetails?.localizacao?.regiao?.nome && <InfoCountry title="Região" label={countryDetails.localizacao.regiao.nome} />}
+        {countryDetails?.localizacao?.subRegiao?.nome && <InfoCountry title="Sub-região" label={countryDetails.localizacao.subRegiao.nome} />}
+        {countryDetails?.localizacao?.regiaoIntermediaria?.nome && <InfoCountry title="Região intermediária" label={countryDetails.localizacao.regiaoIntermediaria.nome} />}
         {countryDetails?.linguas?.length > 0 && (
           <InfoCountry title="Línguas" label={showArrayStrings(countryDetails.linguas)} />
         )}

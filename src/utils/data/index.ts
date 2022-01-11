@@ -13454,13 +13454,13 @@ export const brazilDetails = {
       nome: 'América',
       createdAt: '2022-01-04T22:54:43.1984463Z',
     },
-    sub_regiao: {
+    subRegiao: {
       id: {
         M49: 419,
       },
       nome: 'América Latina e Caribe',
     },
-    regiao_intermediaria: {
+    regiaoIntermediaria: {
       id: {
         M49: 5,
       },

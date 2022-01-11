@@ -21,8 +21,8 @@ export const COUNTRY_DETAILS_INITIAL_STATE = {
   area: { total: '', unidade: { nome: '', símbolo: '', multiplicador: 1 } },
   localizacao: {
     regiao: { id: { M49: 0 }, nome: '' },
-    sub_regiao: { id: { M49: 0 }, nome: '' },
-    regiao_intermediaria: { id: { M49: 0 }, nome: '' },
+    subRegiao: { id: { M49: 0 }, nome: '' },
+    regiaoIntermediaria: { id: { M49: 0 }, nome: '' },
   },
   linguas: [],
   governo: { capital: { nome: '' } },
