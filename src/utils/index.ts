@@ -104,7 +104,6 @@ export const getPopulationDensity = (population: number, area: string): string =
   return `${numToShow} habitantes por quilômetro quadrado`;
 };
 
-
 export const showArrayStrings = (array: Array<string>): string => {
   if (isEmpty(array)) {
     return 'Dado não encontrado';
