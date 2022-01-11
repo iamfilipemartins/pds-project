@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-useless-escape */
+import { isEmpty } from 'lodash';
 import { useEffect, useState } from 'react';
 import { countryNames } from './data';
 
@@ -63,15 +64,41 @@ export const roundPopulation = (num: number): string => {
     return 'Dado populacional não encontrado';
   }
 
-  const numTest = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const numToShow = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
   if (num > 1000000000) {
-    return `${numTest} bilhões de habitantes`;
+    return `${numToShow} bilhões de habitantes`;
   }
   if (num > 1000000) {
-    return `${numTest} milhões de habitantes`;
+    return `${numToShow} milhões de habitantes`;
   }
-  return `${numTest} mil habitantes`;
+  return `${numToShow} mil habitantes`;
+};
+
+export const getArea = (num: string): string => {
+  if (isEmpty(num)) {
+    return 'Dado de área territorial não encontrado';
+  }
+
+  const areaInt = parseInt(num, 10) || 0;
+
+  const numToShow = areaInt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  return `${numToShow} quilômetros quadrados`;
+};
+
+export const getPopulationDensity = (population: number, area: string): string => {
+  if (isNaN(population) || isEmpty(area)) {
+    return 'Dado não encontrado';
+  }
+
+  const areaInt = parseInt(area, 10) || 0;
+
+  const density = population / areaInt;
+
+  const numToShow = density.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  return `${numToShow} habitantes por quilômetro quadrado`;
 };
 
 export default getPTBRCountryName;

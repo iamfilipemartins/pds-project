@@ -7,6 +7,7 @@ export interface Props {
 
 export const Container = styled.div`
   flex: 1;
+  height: 100vh;
 `;
 
 export const Flag = styled.img`
@@ -51,6 +52,16 @@ export const NameContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-top: 16px;
+`;
+
+export const LoadingContainer = styled.div`
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
 `;
 
 export default Container;

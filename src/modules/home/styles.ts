@@ -6,6 +6,7 @@ export interface Props {
 
 export const Container = styled.div`
   flex: 1;
+  height: 100vh;
 `;
 
 export const BodyContainer = styled.div`
@@ -20,6 +21,16 @@ export const ItemsHomeContainer = styled.div`
   align-items: center;
   flex-direction: row;
   position: relative;
+`;
+
+export const LoadingContainer = styled.div`
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
 `;
 
 export default Container;

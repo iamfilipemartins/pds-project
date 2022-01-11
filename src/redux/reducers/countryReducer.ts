@@ -5,7 +5,7 @@ import {
   ICountryDetails,
 } from '../actions/countryActions';
 
-type CountryNameState = {
+type CountryState = {
   countrySelected: ICountrySelected;
   countryDetails: ICountryDetails;
 };
@@ -15,7 +15,22 @@ type Action = {
   payload: any;
 };
 
-const initialState: CountryNameState = {
+export const COUNTRY_DETAILS_INITIAL_STATE = {
+  id: { M49: 0, ISO_3166_1_ALPHA_2: '', ISO_3166_1_ALPHA_3: '' },
+  nome: { abreviado: '' },
+  area: { total: '', unidade: { nome: '', símbolo: '', multiplicador: 1 } },
+  localizacao: {
+    regiao: { id: { M49: 0 }, nome: '' },
+    sub_regiao: { id: { M49: 0 }, nome: '' },
+    regiao_intermediaria: { id: { M49: 0 }, nome: '' },
+  },
+  linguas: [],
+  governo: { capital: { nome: '' } },
+  moedas: [],
+  historico: '',
+};
+
+const initialState: CountryState = {
   countrySelected: {
     mapData: {
       ABBREV: '',
@@ -34,23 +49,10 @@ const initialState: CountryNameState = {
       SUBREGION: '',
     },
   },
-  countryDetails: {
-    id: { M49: 0, ISO_3166_1_ALPHA_2: '', ISO_3166_1_ALPHA_3: '' },
-    nome: { abreviado: '' },
-    area: { total: '', unidade: { nome: '', símbolo: '', multiplicador: 1 } },
-    localizacao: {
-      regiao: { id: { M49: 0 }, nome: '' },
-      sub_regiao: { id: { M49: 0 }, nome: '' },
-      regiao_intermediaria: { id: { M49: 0 }, nome: '' },
-    },
-    linguas: [],
-    governo: { capital: { nome: '' } },
-    unidades_monetarias: [],
-    historico: '',
-  },
+  countryDetails: COUNTRY_DETAILS_INITIAL_STATE,
 };
 
-const countryReducer = (state: CountryNameState = initialState, action: Action): any => {
+const countryReducer = (state: CountryState = initialState, action: Action): any => {
   switch (action.type) {
     case SET_COUNTRY_SELECTED:
       return {

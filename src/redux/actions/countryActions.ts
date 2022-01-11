@@ -94,7 +94,7 @@ export interface ICountryDetails {
   localizacao: any;
   linguas: any;
   governo: any;
-  "unidades_monetarias": any;
+  moedas: any;
   historico: any;
 }
 

@@ -4,17 +4,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import { useNavigate } from 'react-router-dom';
 import Flag from 'react-world-flags';
-import { ICountryMapData, setCountryDetails, setCountrySelected } from '../../redux/actions/countryActions';
+import { ICountryMapData, setCountrySelected, setCountryDetails } from '../../redux/actions/countryActions';
 import { AppState } from '../../redux/reducers/rootReducer';
 import MapChart from '../map/MapChart';
 import Header from '../../components/header';
-import { Container, ContentContainer, Name, History, NameContainer } from './styles';
+import { Container, ContentContainer, Name, History, NameContainer, LoadingContainer } from './styles';
 import InfoCountry from '../../components/infoCountry';
-import { getPTBRCountryName, roundPopulation, useWindowDimensions } from '../../utils';
-import { brazilDetails } from '../../utils/data';
+import { colors, getPTBRCountryName, getArea, roundPopulation, getPopulationDensity, useWindowDimensions } from '../../utils';
+import getCountryDetails from './services';
+import { COUNTRY_DETAILS_INITIAL_STATE } from '../../redux/reducers/countryReducer';
+import Loading from '../../utils/svg/components/loading';
 
-const CountryDetails = (): any => {
+const CountryDetails : React.FC = (): any => {
   const [content, setContent] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const { width } = useWindowDimensions();
 
   const dispatch = useDispatch();
@@ -27,12 +31,34 @@ const CountryDetails = (): any => {
   }, [countrySelected]);
 
   const handleSetCountry = async (countrySelectedOnMap: ICountryMapData) => {
-    await dispatch(setCountrySelected(countrySelectedOnMap));
-    await dispatch(setCountryDetails(brazilDetails));
-    navigate(`/details/${countrySelectedOnMap.ISO_A2}`);
+    try {
+      setLoading(true);
+      await dispatch(setCountrySelected(countrySelectedOnMap));
+      const response = await getCountryDetails(countrySelectedOnMap.ISO_A2);
+      if(response){
+        await dispatch(setCountryDetails(response));
+        navigate(`/details/${countrySelectedOnMap.ISO_A2}`);
+      } else {
+        await dispatch(setCountryDetails(COUNTRY_DETAILS_INITIAL_STATE));
+      }
+    } catch (error) {
+      await dispatch(setCountryDetails(COUNTRY_DETAILS_INITIAL_STATE));
+    }
+    setLoading(false);
   };
 
-  return (
+  if(loading){
+    return (
+      <Container>
+        <Header />
+        <LoadingContainer>
+          <Loading width={100} height={100} color={colors.orange}/>
+        </LoadingContainer>
+      </Container>
+    )
+  }
+
+    return (
     <Container>
       <Header />
       <ContentContainer width={width}>
@@ -42,24 +68,21 @@ const CountryDetails = (): any => {
         </NameContainer>
         {countryDetails?.historico && <History width={width}>{countryDetails.historico}</History>}
         <InfoCountry title="População" label={roundPopulation(countrySelected.POP_EST)} />
-        {countryDetails?.governo?.capital?.nome && (
-          <InfoCountry title="Capital" label={countryDetails.governo.capital.nome} />
+        {countryDetails?.area && (
+          <>
+            <InfoCountry title="Área" label={getArea(countryDetails.area)} />
+            <InfoCountry title="Densidade demográfica" label={getPopulationDensity(countrySelected.POP_EST, countryDetails.area)} />
+          </>
         )}
-        {countryDetails?.area?.total && countryDetails?.area?.unidade?.nome && (
-          <InfoCountry title="Área" label={`${countryDetails.area.total} ${countryDetails.area.unidade.nome}`} />
+        {countryDetails?.governo && (
+          <InfoCountry title="Capital" label={countryDetails.governo} />
         )}
-        {countryDetails?.localizacao?.regiao?.nome && (
-          <InfoCountry title="Região" label={countryDetails.localizacao.regiao.nome} />
+        {countryDetails?.localizacao && (
+          <InfoCountry title="Região" label={countryDetails.localizacao} />
         )}
-        {countryDetails?.localizacao?.sub_regiao?.nome && (
-          <InfoCountry title="Sub-região" label={countryDetails.localizacao.sub_regiao.nome} />
-        )}
-        {countryDetails?.localizacao?.regiao_intermediaria?.nome && (
-          <InfoCountry title="Região intermediária" label={countryDetails.localizacao.regiao_intermediaria.nome} />
-        )}
-        {countryDetails?.linguas?.length > 0 && <InfoCountry title="Línguas" label={countryDetails.linguas[0].nome} />}
-        {countryDetails?.unidades_monetarias?.length > 0 && (
-          <InfoCountry title="Unidades monetárias" label={countryDetails.unidades_monetarias[0].nome} />
+        {countryDetails?.linguas?.length > 0 && <InfoCountry title="Línguas" label={countryDetails.linguas[0]} />}
+        {countryDetails?.moedas?.length > 0 && (
+          <InfoCountry title="Moedas" label={countryDetails.moedas[0]} />
         )}
       </ContentContainer>
       <MapChart setTooltipContent={setContent} highlighted={countrySelected?.ISO_A2} onClick={handleSetCountry} />

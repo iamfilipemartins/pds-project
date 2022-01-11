@@ -10,7 +10,7 @@ interface Props {
   highlighted?: string;
 }
 
-const MapChart = ({ setTooltipContent, onClick, highlighted }: Props) => {
+const MapChart : React.FC<Props> = ({ setTooltipContent, onClick, highlighted }: Props) => {
   const [countrySelected, setCountrySelected] = useState('');
 
   const handleOnClick = (value: any) => (onClick ? onClick(value) : null);
