@@ -1,4 +1,6 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-useless-escape */
+import { isEmpty } from 'lodash';
 import { useEffect, useState } from 'react';
 import { countryNames } from './data';
 
@@ -57,37 +59,60 @@ export const onlyNumbers = (value: string): string => value.replace(/\D/g, '');
 
 export const onlyLetters = (value: string): string => value.replace(/[^a-zA-Z]+/g, '');
 
-export const addDataIntoCache = (cacheName: string, response: any): any => {
-  // Converting our respons into Actual Response form
-  const data = new Response(JSON.stringify(response));
-
-  if ('caches' in window) {
-    // Opening given cache and putting our data into it
-    caches.open(cacheName).then((cache) => {
-      cache.put('http://localhost:3000/pds-project/', data);
-    });
+export const roundPopulation = (num: number): string => {
+  if (isNaN(num)) {
+    return 'Dado populacional não encontrado';
   }
+
+  const numToShow = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  if (num > 1000000000) {
+    return `${numToShow} bilhões de habitantes`;
+  }
+  if (num > 1000000) {
+    return `${numToShow} milhões de habitantes`;
+  }
+  return `${numToShow} mil habitantes`;
 };
 
-export const deleteSpecificCache = (cacheName: string): any => {
-  if ('caches' in window) {
-    caches.delete(cacheName).then((res) => {
-      return res;
-    });
+export const getArea = (num: string): string => {
+  if (isEmpty(num)) {
+    return 'Dado de área territorial não encontrado';
   }
+
+  const areaInt = parseInt(num, 10) || 0;
+
+  const numToShow = areaInt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  return `${numToShow} quilômetros quadrados`;
 };
 
-export const getCacheData = async (name: string) => {
-  const url = 'http://localhost:3000/pds-project/';
+const replaceAt = (str: string, index: number, replacement: string) => {
+  return str.substring(0, index) + replacement + str.substring(index + 1);
+};
 
-  // Opening that particular cache
-  const cacheStorage = await caches.open(name);
+export const getPopulationDensity = (population: number, area: string): string => {
+  if (isNaN(population) || isEmpty(area)) {
+    return 'Dado não encontrado';
+  }
 
-  // Fetching that particular cache data
-  const cachedResponse = await cacheStorage.match(url);
-  const data = cachedResponse ? await cachedResponse.json() : [];
+  const areaInt = parseInt(area, 10) || 0;
 
-  return data;
+  const density = (population / areaInt).toFixed(2).toString();
+
+  const densityFormatted = replaceAt(density, density.length - 3, ',');
+
+  const numToShow = densityFormatted.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  return `${numToShow} habitantes por quilômetro quadrado`;
+};
+
+export const showArrayStrings = (array: Array<string>): string => {
+  if (isEmpty(array)) {
+    return 'Dado não encontrado';
+  }
+
+  return array.join(' - ');
 };
 
 export default getPTBRCountryName;

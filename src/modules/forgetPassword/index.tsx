@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container } from './styles';
 import Content from './content';
 
-const ForgetPassword = (): any => {
+const ForgetPassword: React.FC = (): any => {
   const [email, setEmail] = useState('');
 
   useEffect(() => {

@@ -4,6 +4,11 @@ type UserState = {
   user: IUserData;
 };
 
+type Action = {
+  type: string;
+  payload: any;
+};
+
 const initialState: UserState = {
   user: {
     login: {},
@@ -11,7 +16,7 @@ const initialState: UserState = {
     emailRecovery: '',
   },
 };
-const userReducer = (state: UserState = initialState, action: any): any => {
+const userReducer = (state: UserState = initialState, action: Action): any => {
   switch (action.type) {
     case SET_LOGIN_DATA:
       return {

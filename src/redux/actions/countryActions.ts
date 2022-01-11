@@ -1,5 +1,5 @@
 export const SET_COUNTRY_SELECTED = 'country/SET_COUNTRY_SELECTED';
-export const SET_COUNTRY_IBGE_DATA = 'country/SET_COUNTRY_IBGE_DATA';
+export const SET_COUNTRY_DETAILS = 'country/SET_COUNTRY_DETAILS';
 
 export interface countryAction {
   type: string;
@@ -25,8 +25,8 @@ export interface ICountryMapData {
 
 export interface ICountryIBGEDataID {
   M49: number;
-  'ISO-3166-1-ALPHA-2': string;
-  'ISO-3166-1-ALPHA-3': string;
+  ISO_3166_1_ALPHA_2: string;
+  ISO_3166_1_ALPHA_3: string;
 }
 
 export interface ICountryIBGEDataNome {
@@ -59,13 +59,13 @@ export interface ICountryIBGEDataLocalizacaoSubRegiao {
 }
 export interface ICountryIBGEDataLocalizacao {
   regiao: ICountryIBGEDataLocalizacaoRegiao;
-  'sub-regiao': ICountryIBGEDataLocalizacaoSubRegiao;
-  'regiao-intermediaria': any;
+  subRegiao: ICountryIBGEDataLocalizacaoSubRegiao;
+  regiaoIntermediaria: any;
 }
 
 export interface ICountryIBGEDataLinguaID {
-  'ISO-639-1': string;
-  'ISO-639-2': string;
+  ISO_639_1: string;
+  ISO_639_2: string;
 }
 export interface ICountryIBGEDataLingua {
   id: ICountryIBGEDataLinguaID;
@@ -79,28 +79,27 @@ export interface ICountryIBGEDataGoverno {
 }
 
 export interface ICountryIBGEDataUnidadeMonetariaID {
-  'ISO-4217-ALPHA': string;
-  'ISO-4217-NUMERICO': string;
+  ISO_4217_ALPHA: string;
+  ISO_4217_NUMERICO: string;
 }
 export interface ICountryIBGEDataUnidadeMonetaria {
   id: ICountryIBGEDataUnidadeMonetariaID;
   nome: string;
 }
 
-export interface ICountryIBGEData {
-  id: ICountryIBGEDataID;
-  nome: ICountryIBGEDataNome;
-  area: ICountryIBGEDataArea;
-  localizacao: ICountryIBGEDataLocalizacao;
-  linguas: ICountryIBGEDataLingua[];
-  governo: ICountryIBGEDataGoverno;
-  'unidades-monetarias': ICountryIBGEDataUnidadeMonetaria[];
-  historico: string;
+export interface ICountryDetails {
+  id: any;
+  nome: any;
+  area: any;
+  localizacao: any;
+  linguas: any;
+  governo: any;
+  moedas: any;
+  historico: any;
 }
 
 export interface ICountrySelected {
   mapData: ICountryMapData;
-  details?: ICountryIBGEData;
 }
 
 export const setCountrySelected = (value: ICountryMapData): any => ({
@@ -108,7 +107,7 @@ export const setCountrySelected = (value: ICountryMapData): any => ({
   payload: value,
 });
 
-export const setCountryIbgeData = (value: ICountryIBGEData): any => ({
-  type: SET_COUNTRY_IBGE_DATA,
+export const setCountryDetails = (value: any): any => ({
+  type: SET_COUNTRY_DETAILS,
   payload: value,
 });
