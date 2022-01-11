@@ -87,6 +87,10 @@ export const getArea = (num: string): string => {
   return `${numToShow} quilômetros quadrados`;
 };
 
+const replaceAt = (str: string, index: number, replacement: string) => {
+  return str.substring(0, index) + replacement + str.substring(index + 1);
+}
+
 export const getPopulationDensity = (population: number, area: string): string => {
   if (isNaN(population) || isEmpty(area)) {
     return 'Dado não encontrado';
@@ -94,12 +98,11 @@ export const getPopulationDensity = (population: number, area: string): string =
 
   const areaInt = parseInt(area, 10) || 0;
 
-  const density = population / areaInt;
+  const density = (population / areaInt).toFixed(2).toString();
 
-  const numToShow = density
-    .toFixed(2)
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const densityFormatted = replaceAt(density, density.length - 3, ',');
+
+  const numToShow = densityFormatted.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
   return `${numToShow} habitantes por quilômetro quadrado`;
 };
