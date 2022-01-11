@@ -89,7 +89,7 @@ export const getArea = (num: string): string => {
 
 const replaceAt = (str: string, index: number, replacement: string) => {
   return str.substring(0, index) + replacement + str.substring(index + 1);
-}
+};
 
 export const getPopulationDensity = (population: number, area: string): string => {
   if (isNaN(population) || isEmpty(area)) {
