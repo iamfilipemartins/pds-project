@@ -17,6 +17,7 @@ import {
   roundPopulation,
   getPopulationDensity,
   useWindowDimensions,
+  showArrayStrings,
 } from '../../utils';
 import getCountryDetails from './services';
 import { COUNTRY_DETAILS_INITIAL_STATE } from '../../redux/reducers/countryReducer';
@@ -86,8 +87,8 @@ const CountryDetails: React.FC = (): any => {
         )}
         {countryDetails?.governo && <InfoCountry title="Capital" label={countryDetails.governo} />}
         {countryDetails?.localizacao && <InfoCountry title="Região" label={countryDetails.localizacao} />}
-        {countryDetails?.linguas?.length > 0 && <InfoCountry title="Línguas" label={countryDetails.linguas[0]} />}
-        {countryDetails?.moedas?.length > 0 && <InfoCountry title="Moedas" label={countryDetails.moedas[0]} />}
+        {countryDetails?.linguas?.length > 0 && <InfoCountry title="Línguas" label={showArrayStrings(countryDetails.linguas)} />}
+        {countryDetails?.moedas?.length > 0 && <InfoCountry title="Moedas" label={showArrayStrings(countryDetails.moedas)} />}
       </ContentContainer>
       <MapChart setTooltipContent={setContent} highlighted={countrySelected?.ISO_A2} onClick={handleSetCountry} />
       <ReactTooltip>{content}</ReactTooltip>
