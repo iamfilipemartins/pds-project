@@ -5,7 +5,7 @@ import Content from './content';
 import { useWindowDimensions } from '../../utils';
 import logo from '../../utils/svg/Logo48x48.svg';
 
-const Login : React.FC = (): any => {
+const Login: React.FC = (): any => {
   const { width } = useWindowDimensions();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

@@ -14,7 +14,7 @@ import { COUNTRY_DETAILS_INITIAL_STATE } from '../../redux/reducers/countryReduc
 import { colors } from '../../utils';
 import Loading from '../../utils/svg/components/loading';
 
-const Home : React.FC = (): any => {
+const Home: React.FC = (): any => {
   const [loading, setLoading] = useState(false);
   const [content, setContent] = useState('');
   const dispatch = useDispatch();

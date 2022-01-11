@@ -10,12 +10,19 @@ import MapChart from '../map/MapChart';
 import Header from '../../components/header';
 import { Container, ContentContainer, Name, History, NameContainer, LoadingContainer } from './styles';
 import InfoCountry from '../../components/infoCountry';
-import { colors, getPTBRCountryName, getArea, roundPopulation, getPopulationDensity, useWindowDimensions } from '../../utils';
+import {
+  colors,
+  getPTBRCountryName,
+  getArea,
+  roundPopulation,
+  getPopulationDensity,
+  useWindowDimensions,
+} from '../../utils';
 import getCountryDetails from './services';
 import { COUNTRY_DETAILS_INITIAL_STATE } from '../../redux/reducers/countryReducer';
 import Loading from '../../utils/svg/components/loading';
 
-const CountryDetails : React.FC = (): any => {
+const CountryDetails: React.FC = (): any => {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -35,7 +42,7 @@ const CountryDetails : React.FC = (): any => {
       setLoading(true);
       await dispatch(setCountrySelected(countrySelectedOnMap));
       const response = await getCountryDetails(countrySelectedOnMap.ISO_A2);
-      if(response){
+      if (response) {
         await dispatch(setCountryDetails(response));
         navigate(`/details/${countrySelectedOnMap.ISO_A2}`);
       } else {
@@ -47,18 +54,18 @@ const CountryDetails : React.FC = (): any => {
     setLoading(false);
   };
 
-  if(loading){
+  if (loading) {
     return (
       <Container>
         <Header />
         <LoadingContainer>
-          <Loading width={100} height={100} color={colors.orange}/>
+          <Loading width={100} height={100} color={colors.orange} />
         </LoadingContainer>
       </Container>
-    )
+    );
   }
 
-    return (
+  return (
     <Container>
       <Header />
       <ContentContainer width={width}>
@@ -71,19 +78,16 @@ const CountryDetails : React.FC = (): any => {
         {countryDetails?.area && (
           <>
             <InfoCountry title="Área" label={getArea(countryDetails.area)} />
-            <InfoCountry title="Densidade demográfica" label={getPopulationDensity(countrySelected.POP_EST, countryDetails.area)} />
+            <InfoCountry
+              title="Densidade demográfica"
+              label={getPopulationDensity(countrySelected.POP_EST, countryDetails.area)}
+            />
           </>
         )}
-        {countryDetails?.governo && (
-          <InfoCountry title="Capital" label={countryDetails.governo} />
-        )}
-        {countryDetails?.localizacao && (
-          <InfoCountry title="Região" label={countryDetails.localizacao} />
-        )}
+        {countryDetails?.governo && <InfoCountry title="Capital" label={countryDetails.governo} />}
+        {countryDetails?.localizacao && <InfoCountry title="Região" label={countryDetails.localizacao} />}
         {countryDetails?.linguas?.length > 0 && <InfoCountry title="Línguas" label={countryDetails.linguas[0]} />}
-        {countryDetails?.moedas?.length > 0 && (
-          <InfoCountry title="Moedas" label={countryDetails.moedas[0]} />
-        )}
+        {countryDetails?.moedas?.length > 0 && <InfoCountry title="Moedas" label={countryDetails.moedas[0]} />}
       </ContentContainer>
       <MapChart setTooltipContent={setContent} highlighted={countrySelected?.ISO_A2} onClick={handleSetCountry} />
       <ReactTooltip>{content}</ReactTooltip>

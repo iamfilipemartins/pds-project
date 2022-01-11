@@ -96,7 +96,10 @@ export const getPopulationDensity = (population: number, area: string): string =
 
   const density = population / areaInt;
 
-  const numToShow = density.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const numToShow = density
+    .toFixed(2)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
   return `${numToShow} habitantes por quilômetro quadrado`;
 };
