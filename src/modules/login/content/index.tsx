@@ -47,9 +47,7 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
   };
 
   if (loading) {
-    return (
-      <Loading width={128} height={128} color={colors.orange} />
-    );
+    return <Loading width={128} height={128} color={colors.orange} />;
   }
 
   return (
