@@ -15,8 +15,7 @@ import {
 import store from '../redux/store/store';
 
 export const headerRequests = async () => {
-  const { token } = store.getState().user;
-
+  const { token } = store.getState()?.user;
   return token
     ? {
         'Content-Type': 'application/json',

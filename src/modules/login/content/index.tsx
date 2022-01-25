@@ -7,6 +7,8 @@ import Input from '../../../components/input';
 import Button from '../../../components/button';
 import { colors, useWindowDimensions, validateEmail } from '../../../utils';
 import { setLoginData } from '../../../redux/actions/userActions';
+import login from '../services';
+import Loading from '../../../utils/svg/components/loading';
 
 export interface Props {
   email: string;
@@ -20,17 +22,35 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setDisabled(!(validateEmail(email) && !_.isEmpty(password)));
   }, [email, password]);
 
   const handleOnClickLogin = async () => {
-    if (email === 'admin@admin.com' && password === 'admin') {
-      await dispatch(setLoginData({ email, password }));
-      navigate('/', { replace: true });
+    if (email && password) {
+      try {
+        setLoading(true);
+        const response = await login(email, password);
+        if (response) {
+          await dispatch(setLoginData(response));
+          navigate('/', { replace: true });
+        } else {
+          await dispatch(setLoginData({}));
+        }
+      } catch (error) {
+        await dispatch(setLoginData({}));
+      }
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <Loading width={128} height={128} color={colors.orange} />
+    );
+  }
 
   return (
     <Container width={width}>
