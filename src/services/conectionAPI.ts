@@ -12,8 +12,16 @@ import {
   ERROR_NOT_FOUND,
 } from './constants';
 
+import store from '../redux/store/store';
+
 export const headerRequests = async () => {
-  return {
+
+  const {token} = store.getState().user;
+  
+  return token ? {
+    'Content-Type': 'application/json',
+    'Authentication': `Bearer ${token}`
+  } : {
     'Content-Type': 'application/json',
   };
 };
