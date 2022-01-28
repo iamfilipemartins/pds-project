@@ -13,6 +13,7 @@ export interface IUserData {
 export interface LoginData {
   email: string;
   password: string;
+  token?: string;
 }
 
 export interface SignupData {

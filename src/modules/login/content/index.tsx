@@ -25,7 +25,7 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setDisabled(!(validateEmail(email) && !_.isEmpty(password)));
+    setDisabled(_.isEmpty(email) || _.isEmpty(password));
   }, [email, password]);
 
   const handleOnClickLogin = async () => {
@@ -34,7 +34,7 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
         setLoading(true);
         const response = await login(email, password);
         if (response) {
-          await dispatch(setLoginData(response));
+          await dispatch(setLoginData({ email, password, token: response }));
           navigate('/', { replace: true });
         } else {
           await dispatch(setLoginData({}));
