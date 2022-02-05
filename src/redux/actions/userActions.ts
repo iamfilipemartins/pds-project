@@ -13,6 +13,7 @@ export interface IUserData {
 export interface LoginData {
   email: string;
   password: string;
+  token?: string;
 }
 
 export interface SignupData {
@@ -22,7 +23,7 @@ export interface SignupData {
   password: string;
 }
 
-export const setLoginData = (value: LoginData): any => ({
+export const setLoginData = (value: LoginData | any): any => ({
   type: SET_LOGIN_DATA,
   payload: value,
 });

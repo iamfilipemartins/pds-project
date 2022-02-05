@@ -12,10 +12,19 @@ import {
   ERROR_NOT_FOUND,
 } from './constants';
 
+import store from '../redux/store/store';
+
 export const headerRequests = async () => {
-  return {
-    'Content-Type': 'application/json',
-  };
+  const token = store.getState()?.user?.user?.login?.token;
+
+  return token
+    ? {
+        'Content-Type': 'application/json',
+        Authentication: `Bearer ${token}`,
+      }
+    : {
+        'Content-Type': 'application/json',
+      };
 };
 
 export default class Connect {
@@ -23,9 +32,9 @@ export default class Connect {
     let answer;
     let config = {};
 
-    const headers = await headerRequests();
-
     try {
+      const headers = await headerRequests();
+
       config = {
         headers,
       };
