@@ -4,11 +4,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import { useNavigate } from 'react-router-dom';
 import Flag from 'react-world-flags';
+import _ from 'lodash';
 import { ICountryMapData, setCountrySelected, setCountryDetails } from '../../redux/actions/countryActions';
 import { AppState } from '../../redux/reducers/rootReducer';
 import MapChart from '../map/MapChart';
 import Header from '../../components/header';
-import { Container, ContentContainer, Name, History, NameContainer, LoadingContainer } from './styles';
+import {
+  Container,
+  ContentContainer,
+  Name,
+  History,
+  NameContainer,
+  LoadingContainer,
+  TopContainer,
+  BottomContainer,
+} from './styles';
 import InfoCountry from '../../components/infoCountry';
 import {
   colors,
@@ -22,11 +32,21 @@ import {
 import getCountryDetails from './services';
 import { COUNTRY_DETAILS_INITIAL_STATE } from '../../redux/reducers/countryReducer';
 import Loading from '../../utils/svg/components/loading';
+import Button from '../../components/button';
+import Input from '../../components/input';
+import SelectOption from '../../components/select';
+import { fieldsOptionsToEdit } from '../../utils/data';
 
 const CountryDetails: React.FC = (): any => {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const [isEdit, setIsEdit] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+  const [editData, setEditData] = useState({
+    campo: '',
+    valor: '',
+    pais: '',
+  });
   const { width } = useWindowDimensions();
 
   const dispatch = useDispatch();
@@ -36,7 +56,27 @@ const CountryDetails: React.FC = (): any => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setIsEdit(false);
   }, [countrySelected]);
+
+  useEffect(() => {
+    if (!isEdit) {
+      setEditData({
+        campo: '',
+        valor: '',
+        pais: '',
+      });
+    } else {
+      setEditData({
+        ...editData,
+        pais: countrySelected.ISO_A2,
+      });
+    }
+  }, [isEdit]);
+
+  useEffect(() => {
+    setDisabled(_.isEmpty(editData.campo) || _.isEmpty(editData.valor));
+  }, [editData]);
 
   const handleSetCountry = async (countrySelectedOnMap: ICountryMapData) => {
     try {
@@ -66,43 +106,100 @@ const CountryDetails: React.FC = (): any => {
     );
   }
 
+  const handleFieldSelection = (event: any) => {
+    setEditData({ ...editData, campo: event.target.value });
+  };
+
   return (
     <Container>
       <Header />
       <ContentContainer width={width}>
-        <NameContainer>
-          <Name width={width}>{getPTBRCountryName(countrySelected.NAME)}</Name>
-          <Flag code={countrySelected.ISO_A2} height="40" width="40" />
-        </NameContainer>
-        {countryDetails?.historico && <History width={width}>{countryDetails.historico}</History>}
-        <InfoCountry title="População" label={roundPopulation(countrySelected.POP_EST)} />
-        {countryDetails?.area && (
-          <>
-            <InfoCountry title="Área" label={getArea(countryDetails.area)} />
-            <InfoCountry
-              title="Densidade demográfica"
-              label={getPopulationDensity(countrySelected.POP_EST, countryDetails.area)}
+        <TopContainer>
+          <NameContainer>
+            <Name width={width}>{getPTBRCountryName(countrySelected.NAME)}</Name>
+            <Flag code={countrySelected.ISO_A2} height="40" width="40" />
+          </NameContainer>
+          {!isEdit && (
+            <Button
+              label="Editar"
+              onClick={() => setIsEdit(true)}
+              backgroundColor={colors.orange}
+              color={colors.white}
+              border={colors.orange}
             />
+          )}
+        </TopContainer>
+
+        {isEdit ? (
+          <>
+            <SelectOption
+              value={editData.campo}
+              isObrigatory
+              placeholder="Campo"
+              options={fieldsOptionsToEdit}
+              handleChange={handleFieldSelection}
+            />
+            <Input
+              testID="valor"
+              type="text"
+              placeholder="Valor"
+              value={editData.valor}
+              onChange={(v) => {
+                setEditData({ ...editData, valor: v });
+              }}
+              isObrigatory
+            />
+            <BottomContainer width={width}>
+              <Button
+                label="Cancelar"
+                onClick={() => setIsEdit(false)}
+                backgroundColor={colors.grey050}
+                color={colors.black}
+                border={colors.grey200}
+              />
+              <Button
+                label="Enviar modificação"
+                onClick={() => {}}
+                backgroundColor={colors.orange}
+                color={colors.white}
+                border={colors.orange}
+                disabled={disabled}
+              />
+            </BottomContainer>
+          </>
+        ) : (
+          <>
+            {countryDetails?.historico && <History width={width}>{countryDetails.historico}</History>}
+            <InfoCountry title="População" label={roundPopulation(countrySelected.POP_EST)} />
+            {countryDetails?.area && (
+              <>
+                <InfoCountry title="Área" label={getArea(countryDetails.area)} />
+                <InfoCountry
+                  title="Densidade demográfica"
+                  label={getPopulationDensity(countrySelected.POP_EST, countryDetails.area)}
+                />
+              </>
+            )}
+            {countryDetails?.governo && <InfoCountry title="Capital" label={countryDetails.governo} />}
+            {countryDetails?.localizacao?.regiao?.nome && (
+              <InfoCountry title="Região" label={countryDetails.localizacao.regiao.nome} />
+            )}
+            {countryDetails?.localizacao?.subRegiao?.nome && (
+              <InfoCountry title="Sub-região" label={countryDetails.localizacao.subRegiao.nome} />
+            )}
+            {countryDetails?.localizacao?.regiaoIntermediaria?.nome && (
+              <InfoCountry title="Região intermediária" label={countryDetails.localizacao.regiaoIntermediaria.nome} />
+            )}
+            {countryDetails?.linguas?.length > 0 && (
+              <InfoCountry title="Línguas" label={showArrayStrings(countryDetails.linguas)} />
+            )}
+            {countryDetails?.moedas?.length > 0 && (
+              <InfoCountry title="Moedas" label={showArrayStrings(countryDetails.moedas)} />
+            )}
+            <MapChart setTooltipContent={setContent} highlighted={countrySelected?.ISO_A2} onClick={handleSetCountry} />
           </>
         )}
-        {countryDetails?.governo && <InfoCountry title="Capital" label={countryDetails.governo} />}
-        {countryDetails?.localizacao?.regiao?.nome && (
-          <InfoCountry title="Região" label={countryDetails.localizacao.regiao.nome} />
-        )}
-        {countryDetails?.localizacao?.subRegiao?.nome && (
-          <InfoCountry title="Sub-região" label={countryDetails.localizacao.subRegiao.nome} />
-        )}
-        {countryDetails?.localizacao?.regiaoIntermediaria?.nome && (
-          <InfoCountry title="Região intermediária" label={countryDetails.localizacao.regiaoIntermediaria.nome} />
-        )}
-        {countryDetails?.linguas?.length > 0 && (
-          <InfoCountry title="Línguas" label={showArrayStrings(countryDetails.linguas)} />
-        )}
-        {countryDetails?.moedas?.length > 0 && (
-          <InfoCountry title="Moedas" label={showArrayStrings(countryDetails.moedas)} />
-        )}
       </ContentContainer>
-      <MapChart setTooltipContent={setContent} highlighted={countrySelected?.ISO_A2} onClick={handleSetCountry} />
       <ReactTooltip>{content}</ReactTooltip>
     </Container>
   );

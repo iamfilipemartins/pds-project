@@ -54,6 +54,13 @@ export const NameContainer = styled.div`
   margin-top: 16px;
 `;
 
+export const TopContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const LoadingContainer = styled.div`
   flex: 1;
   height: 100%;
@@ -62,6 +69,18 @@ export const LoadingContainer = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+`;
+
+export const BottomContainer = styled.div.attrs((props: Props) => ({
+  width: props.width,
+}))<Props>`
+  display: flex;
+  flex: 1;
+  width: 100%;
+  flex-direction: ${(props: Props): string => (props.width > 1000 ? 'row' : 'column')};
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
 `;
 
 export default Container;
