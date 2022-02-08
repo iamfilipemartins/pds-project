@@ -29,7 +29,7 @@ import {
   useWindowDimensions,
   showArrayStrings,
 } from '../../utils';
-import getCountryDetails from './services';
+import getCountryDetails, { updateCountryDetails } from './services';
 import { COUNTRY_DETAILS_INITIAL_STATE } from '../../redux/reducers/countryReducer';
 import Loading from '../../utils/svg/components/loading';
 import Button from '../../components/button';
@@ -43,9 +43,9 @@ const CountryDetails: React.FC = (): any => {
   const [isEdit, setIsEdit] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const [editData, setEditData] = useState({
-    campo: '',
-    valor: '',
-    pais: '',
+    field: '',
+    value: '',
+    country: '',
   });
   const { width } = useWindowDimensions();
 
@@ -62,20 +62,20 @@ const CountryDetails: React.FC = (): any => {
   useEffect(() => {
     if (!isEdit) {
       setEditData({
-        campo: '',
-        valor: '',
-        pais: '',
+        field: '',
+        value: '',
+        country: '',
       });
     } else {
       setEditData({
         ...editData,
-        pais: countrySelected.ISO_A2,
+        country: countrySelected.ISO_A2,
       });
     }
   }, [isEdit]);
 
   useEffect(() => {
-    setDisabled(_.isEmpty(editData.campo) || _.isEmpty(editData.valor));
+    setDisabled(_.isEmpty(editData.field) || _.isEmpty(editData.value));
   }, [editData]);
 
   const handleSetCountry = async (countrySelectedOnMap: ICountryMapData) => {
@@ -95,6 +95,23 @@ const CountryDetails: React.FC = (): any => {
     setLoading(false);
   };
 
+  const handleUpdateCountry = async () => {
+    try {
+      setLoading(true);
+      await updateCountryDetails(
+        editData.country, 
+        {
+          Campo: editData.field, 
+          Valor: editData.value
+        }
+      );
+      setIsEdit(false);
+    } catch (error) {
+      window.scrollTo(0, 0);
+    }
+    setLoading(false);
+  };
+
   if (loading) {
     return (
       <Container>
@@ -107,7 +124,7 @@ const CountryDetails: React.FC = (): any => {
   }
 
   const handleFieldSelection = (event: any) => {
-    setEditData({ ...editData, campo: event.target.value });
+    setEditData({ ...editData, field: event.target.value });
   };
 
   return (
@@ -133,19 +150,19 @@ const CountryDetails: React.FC = (): any => {
         {isEdit ? (
           <>
             <SelectOption
-              value={editData.campo}
+              value={editData.field}
               isObrigatory
               placeholder="Campo"
               options={fieldsOptionsToEdit}
               handleChange={handleFieldSelection}
             />
             <Input
-              testID="valor"
+              testID="value"
               type="text"
               placeholder="Valor"
-              value={editData.valor}
+              value={editData.value}
               onChange={(v) => {
-                setEditData({ ...editData, valor: v });
+                setEditData({ ...editData, value: v });
               }}
               isObrigatory
             />
@@ -159,7 +176,7 @@ const CountryDetails: React.FC = (): any => {
               />
               <Button
                 label="Enviar modificação"
-                onClick={() => {}}
+                onClick={handleUpdateCountry}
                 backgroundColor={colors.orange}
                 color={colors.white}
                 border={colors.orange}
