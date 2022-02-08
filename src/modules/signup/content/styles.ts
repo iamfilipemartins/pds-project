@@ -23,28 +23,6 @@ export const BottomContainer = styled.div.attrs((props: Props) => ({
   margin-top: 16px;
 `;
 
-export const InputContainer = styled.div.attrs((props: InputProps) => ({
-  width: props.width,
-  marginRight: props.marginRight,
-  marginLeft: props.marginLeft,
-}))<InputProps>`
-  flex: 1;
-  width: 100%;
-  margin-right: ${(props: InputProps): number => (props.width > 1000 && props.marginRight ? props.marginRight : 0)}px;
-  margin-left: ${(props: InputProps): number => (props.width > 1000 && props.marginLeft ? props.marginLeft : 0)}px;
-`;
-
-export const NameContainer = styled.div.attrs((props: Props) => ({
-  width: props.width,
-}))<Props>`
-  display: flex;
-  flex: 1;
-  width: 100%;
-  flex-direction: ${(props: Props): string => (props.width > 1000 ? 'row' : 'column')};
-  justify-content: space-between;
-  align-items: center;
-`;
-
 export const Container = styled.div.attrs((props: Props) => ({
   width: props.width,
 }))<Props>`

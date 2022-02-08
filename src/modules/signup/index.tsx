@@ -7,16 +7,12 @@ import logo from '../../utils/svg/Logo48x48.svg';
 
 const Signup = (): any => {
   const { width } = useWindowDimensions();
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setName('');
-    setLastName('');
     setEmail('');
     setPassword('');
   }, []);
@@ -28,10 +24,6 @@ const Signup = (): any => {
         <Title width={width}>Geolog</Title>
       </LogoContainer>
       <Content
-        name={name}
-        setName={setName}
-        lastName={lastName}
-        setLastName={setLastName}
         email={email}
         setEmail={setEmail}
         password={password}

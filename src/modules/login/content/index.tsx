@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import _ from 'lodash';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { Container, Text, Title, BottomContainer } from './styles';
+import { Container, Title, BottomContainer } from './styles';
 import Input from '../../../components/input';
 import Button from '../../../components/button';
-import { colors, useWindowDimensions } from '../../../utils';
+import { colors, useWindowDimensions, validateEmail } from '../../../utils';
 import { setLoginData } from '../../../redux/actions/userActions';
 import login from '../services';
 import Loading from '../../../utils/svg/components/loading';
@@ -25,7 +25,7 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setDisabled(_.isEmpty(email) || _.isEmpty(password));
+    setDisabled(validateEmail(email) || _.isEmpty(password));
   }, [email, password]);
 
   const handleOnClickLogin = async () => {
@@ -63,7 +63,6 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
         isObrigatory
       />
       <BottomContainer width={width}>
-        <Text onClick={() => navigate('/forget-password')}>Esqueceu a senha?</Text>
         <Button
           label="Entrar"
           onClick={handleOnClickLogin}

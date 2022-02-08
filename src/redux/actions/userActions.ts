@@ -18,7 +18,6 @@ export interface LoginData {
 
 export interface SignupData {
   name: string;
-  lastName: string;
   email: string;
   password: string;
 }
@@ -32,7 +31,7 @@ export const setEmailRecoveryData = (email: string): any => ({
   type: SET_EMAIL_RECOVERY_DATA,
   payload: email,
 });
-export const setSignupData = (value: SignupData): any => ({
+export const setSignupData = (value: SignupData | any): any => ({
   type: SET_SIGNUP_DATA,
   payload: value,
 });
