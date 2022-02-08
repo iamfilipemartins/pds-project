@@ -98,13 +98,10 @@ const CountryDetails: React.FC = (): any => {
   const handleUpdateCountry = async () => {
     try {
       setLoading(true);
-      await updateCountryDetails(
-        editData.country, 
-        {
-          Campo: editData.field, 
-          Valor: editData.value
-        }
-      );
+      await updateCountryDetails(editData.country, {
+        Campo: editData.field,
+        Valor: editData.value,
+      });
       setIsEdit(false);
     } catch (error) {
       window.scrollTo(0, 0);
