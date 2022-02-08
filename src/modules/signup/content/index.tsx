@@ -17,12 +17,7 @@ export interface Props {
   setPassword: (value: string) => void;
 }
 
-const Content: React.FC<Props> = ({
-  email,
-  password,
-  setEmail,
-  setPassword,
-}: Props) => {
+const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Props) => {
   const { width } = useWindowDimensions();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -47,7 +42,7 @@ const Content: React.FC<Props> = ({
       await dispatch(setSignupData({}));
     }
     setLoading(false);
-  }
+  };
 
   if (loading) {
     return <Loading width={128} height={128} color={colors.orange} />;
