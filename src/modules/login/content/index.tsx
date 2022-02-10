@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Container, Text, Title, BottomContainer } from './styles';
 import Input from '../../../components/input';
 import Button from '../../../components/button';
-import { colors, useWindowDimensions, validateEmail } from '../../../utils';
+import { colors, useWindowDimensions } from '../../../utils';
 import { setLoginData } from '../../../redux/actions/userActions';
 import login from '../services';
 import Loading from '../../../utils/svg/components/loading';

@@ -13499,3 +13499,38 @@ export const brazilDetails = {
   id: '0d9bdb0f-6c9a-4c32-9c73-4394f8b34462',
   createdAt: '2022-01-04T22:54:43.1986797Z',
 };
+
+export const fieldsOptionsToEdit = [
+  {
+    label: 'Área',
+    value: 'Area',
+  },
+  {
+    label: 'Região',
+    value: 'Regiao',
+  },
+  {
+    label: 'Sub-região',
+    value: 'Sub-regiao',
+  },
+  {
+    label: 'Região intermediária',
+    value: 'Regiao-intermediaria',
+  },
+  {
+    label: 'Línguas',
+    value: 'Linguas',
+  },
+  {
+    label: 'Governo',
+    value: 'Governo',
+  },
+  {
+    label: 'Moeda',
+    value: 'Moeda',
+  },
+  {
+    label: 'Dados históricos',
+    value: 'Historico',
+  },
+];
