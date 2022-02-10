@@ -25,7 +25,7 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setDisabled(validateEmail(email) || _.isEmpty(password));
+    setDisabled(!validateEmail(email) || _.isEmpty(password));
   }, [email, password]);
 
   const handleOnClickLogin = async () => {
