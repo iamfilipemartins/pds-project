@@ -12,7 +12,7 @@ export const BottomContainer = styled.div.attrs((props: Props) => ({
   flex: 1;
   width: 100%;
   flex-direction: ${(props: Props): string => (props.width > 1000 ? 'row' : 'column')};
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-top: 16px;
 `;
