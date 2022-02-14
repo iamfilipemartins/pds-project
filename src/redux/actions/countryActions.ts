@@ -6,23 +6,6 @@ export interface countryAction {
   payload: string;
 }
 
-export interface ICountryMapData {
-  ABBREV: string;
-  CONTINENT: string;
-  FORMAL_EN: string;
-  GDP_MD_EST: number;
-  GDP_YEAR: number;
-  ISO_A2: string;
-  ISO_A3: string;
-  NAME: string;
-  NAME_LONG: string;
-  POP_EST: number;
-  POP_RANK: number;
-  POP_YEAR: number;
-  REGION_UN: string;
-  SUBREGION: string;
-}
-
 export interface ICountryIBGEDataID {
   M49: number;
   ISO_3166_1_ALPHA_2: string;
@@ -99,15 +82,28 @@ export interface ICountryDetails {
 }
 
 export interface ICountrySelected {
-  mapData: ICountryMapData;
+  ABBREV: string;
+  CONTINENT: string;
+  FORMAL_EN: string;
+  GDP_MD_EST: number;
+  GDP_YEAR: number;
+  ISO_A2: string;
+  ISO_A3: string;
+  NAME: string;
+  NAME_LONG: string;
+  POP_EST: number;
+  POP_RANK: number;
+  POP_YEAR: number;
+  REGION_UN: string;
+  SUBREGION: string;
 }
 
-export const setCountrySelected = (value: ICountryMapData): any => ({
+export const setCountrySelected = (value: ICountrySelected | any): any => ({
   type: SET_COUNTRY_SELECTED,
   payload: value,
 });
 
-export const setCountryDetails = (value: any): any => ({
+export const setCountryDetails = (value: ICountryDetails | any): any => ({
   type: SET_COUNTRY_DETAILS,
   payload: value,
 });

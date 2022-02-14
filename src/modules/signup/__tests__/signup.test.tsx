@@ -4,7 +4,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import Login from '..';
+import Signup from '..';
 import { COUNTRY_DETAILS_INITIAL_STATE, COUNTRY_SELECTED_INITIAL_STATE } from '../../../redux/reducers/countryReducer';
 
 const mockedUsedNavigate = jest.fn();
@@ -27,7 +27,7 @@ jest.mock('react-redux', () => {
   };
 });
 
-describe('<Login />', () => {
+describe('<Signup />', () => {
   window.scrollTo = jest.fn();
 
   const initialState = {
@@ -42,15 +42,15 @@ describe('<Login />', () => {
     },
   };
   const mockStore = configureStore();
-  test('should display a blank login form, with remember me checked by default', async () => {
+  test('should display a blank signup form, with remember me checked by default', async () => {
     const store = mockStore(initialState);
     const { findByTestId } = render(
       <Provider store={store}>
-        <Login />
+        <Signup />
       </Provider>
     );
 
-    const loginScreen = await findByTestId('login');
+    const loginScreen = await findByTestId('signup');
 
     expect(loginScreen).toMatchSnapshot();
   });
@@ -59,12 +59,12 @@ describe('<Login />', () => {
     const store = mockStore(initialState);
     const { findByTestId } = render(
       <Provider store={store}>
-        <Login />
+        <Signup />
       </Provider>
     );
     const email = (await findByTestId('email')) as HTMLInputElement;
     const password = (await findByTestId('password')) as HTMLInputElement;
-    const loginScreen = (await findByTestId('login')) as HTMLInputElement;
+    const loginScreen = (await findByTestId('signup')) as HTMLInputElement;
 
     fireEvent.change(email, { target: { value: 'test@test.com' } });
     fireEvent.change(password, { target: { value: 'password' } });

@@ -14,7 +14,7 @@ import {
 
 import store from '../redux/store/store';
 
-export const headerRequests = async () => {
+export const headerRequests = async (): Promise<any> => {
   const token = store.getState()?.user?.user?.login?.token;
 
   return token
@@ -28,7 +28,7 @@ export const headerRequests = async () => {
 };
 
 export default class Connect {
-  static async call(url: string, method: string, body?: any) {
+  static async call(url: string, method: string, body?: any): Promise<any> {
     let answer;
     let config = {};
 
@@ -65,7 +65,7 @@ export default class Connect {
     return answer;
   }
 
-  static async connect(url: string, method: string, body?: any) {
+  static async connect(url: string, method: string, body?: any): Promise<any> {
     return Connect.call(url, method, body).catch((error) => {
       if (error?.response) {
         switch (error?.response?.status) {

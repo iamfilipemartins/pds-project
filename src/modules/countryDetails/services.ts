@@ -1,12 +1,17 @@
 import { ConnectApiGet, ConnectApiPatch, urls } from '../../services';
 
-export const getCountryDetails = async (country: string) => {
+interface Body {
+  Campo: string;
+  Valor: string;
+}
+
+export const getCountryDetails = async (country: string): Promise<any> => {
   const url = urls.URL_COUNTRY_DETAILS.replace('{country}', country);
   const returnService = await ConnectApiGet(url);
   return returnService.data;
 };
 
-export const updateCountryDetails = async (country: string, body: any) => {
+export const updateCountryDetails = async (country: string, body: Body): Promise<any> => {
   const url = urls.URL_COUNTRY_DETAILS.replace('{country}', country);
   const returnService = await ConnectApiPatch(url, body);
   return returnService.data;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from '../../utils';
 
 export interface Props {
-  width: number;
+  error: boolean;
 }
 
 export const Container = styled.div`
@@ -13,7 +13,9 @@ export const Container = styled.div`
   flex: 1;
 `;
 
-export const InputStyled = styled.input`
+export const InputStyled = styled.input.attrs((props: Props) => ({
+  error: props.error,
+}))<Props>`
   font-family: Inter;
   font-size: 1em;
   padding: 8px;
@@ -22,7 +24,7 @@ export const InputStyled = styled.input`
   ::placeholder {
     color: ${colors.textColor};
   }
-  border: 1px solid ${colors.grey200};
+  border: 1px solid ${(props: Props): string => (props.error ? colors.orange : colors.grey200)};
   width: 100%;
   box-sizing: border-box;
 `;
