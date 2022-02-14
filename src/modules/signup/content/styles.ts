@@ -48,7 +48,7 @@ export const Text = styled.b`
   font-family: Inter;
   font-weight: regular;
   font-size: 1em;
-  line-height: 1.25em;
+  line-height: 1.5em;
   color: ${colors.textColor};
 `;
 
