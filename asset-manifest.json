@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pds-project/static/css/main.c44f0c0a.chunk.css",
-    "main.js": "/pds-project/static/js/main.133f794b.chunk.js",
-    "main.js.map": "/pds-project/static/js/main.133f794b.chunk.js.map",
+    "main.js": "/pds-project/static/js/main.e36668b3.chunk.js",
+    "main.js.map": "/pds-project/static/js/main.e36668b3.chunk.js.map",
     "runtime-main.js": "/pds-project/static/js/runtime-main.2bb626de.js",
     "runtime-main.js.map": "/pds-project/static/js/runtime-main.2bb626de.js.map",
-    "static/js/2.3b9c4f2d.chunk.js": "/pds-project/static/js/2.3b9c4f2d.chunk.js",
-    "static/js/2.3b9c4f2d.chunk.js.map": "/pds-project/static/js/2.3b9c4f2d.chunk.js.map",
+    "static/js/2.1ab6b2f4.chunk.js": "/pds-project/static/js/2.1ab6b2f4.chunk.js",
+    "static/js/2.1ab6b2f4.chunk.js.map": "/pds-project/static/js/2.1ab6b2f4.chunk.js.map",
     "index.html": "/pds-project/index.html",
     "static/css/main.c44f0c0a.chunk.css.map": "/pds-project/static/css/main.c44f0c0a.chunk.css.map",
-    "static/js/2.3b9c4f2d.chunk.js.LICENSE.txt": "/pds-project/static/js/2.3b9c4f2d.chunk.js.LICENSE.txt",
+    "static/js/2.1ab6b2f4.chunk.js.LICENSE.txt": "/pds-project/static/js/2.1ab6b2f4.chunk.js.LICENSE.txt",
     "static/media/styles.css": "/pds-project/static/media/Inter.b4c30855.ttf",
     "static/media/Logo35x35.2480237e.svg": "/pds-project/static/media/Logo35x35.2480237e.svg",
     "static/media/Logo48x48.91482ae2.svg": "/pds-project/static/media/Logo48x48.91482ae2.svg",
@@ -41,8 +41,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2bb626de.js",
-    "static/js/2.3b9c4f2d.chunk.js",
+    "static/js/2.1ab6b2f4.chunk.js",
     "static/css/main.c44f0c0a.chunk.css",
-    "static/js/main.133f794b.chunk.js"
+    "static/js/main.e36668b3.chunk.js"
   ]
 }
