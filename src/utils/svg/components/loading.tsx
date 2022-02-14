@@ -6,7 +6,7 @@ type Props = {
   color: string;
 };
 
-const Loading = ({ width, height, color }: Props) => (
+const Loading: React.FC<Props> = ({ width, height, color }: Props) => (
   <svg className="svgLoader" viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
     <path stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill={color} transform="rotate(179.719 50 51)">
       <animateTransform

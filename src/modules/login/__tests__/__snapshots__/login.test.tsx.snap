@@ -59,14 +59,9 @@ exports[`<Login /> should display a blank login form, with remember me checked b
       />
     </div>
     <div
-      class="sc-iCfMLu jSwPHu"
+      class="sc-iCfMLu igJYAg"
       width="1024"
     >
-      <p
-        class="sc-pVTFL gVDUJb"
-      >
-        Esqueceu a senha?
-      </p>
       <div
         class="sc-egiyK"
       >

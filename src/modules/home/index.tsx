@@ -4,7 +4,7 @@ import ReactTooltip from 'react-tooltip';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MapChart from '../map/MapChart';
-import { ICountryMapData, setCountryDetails, setCountrySelected } from '../../redux/actions/countryActions';
+import { ICountrySelected, setCountryDetails, setCountrySelected } from '../../redux/actions/countryActions';
 import Header from '../../components/header';
 import Container, { BodyContainer, ItemsHomeContainer, LoadingContainer } from './styles';
 import ItemHome from '../../components/itemHome';
@@ -25,7 +25,7 @@ const Home: React.FC = (): any => {
     if (_.isEmpty(user.login)) {
       navigate('/login', { replace: true });
     }
-  }, []);
+  }, [user.login]);
 
   useEffect(() => {
     if (loading) {
@@ -33,7 +33,7 @@ const Home: React.FC = (): any => {
     }
   }, [loading]);
 
-  const handleSetCountrySelected = async (countrySelectedOnMap: ICountryMapData) => {
+  const handleSetCountrySelected = async (countrySelectedOnMap: ICountrySelected) => {
     try {
       setLoading(true);
       await dispatch(setCountrySelected(countrySelectedOnMap));

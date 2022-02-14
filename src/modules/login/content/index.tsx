@@ -23,6 +23,7 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setDisabled(!validateEmail(email) || _.isEmpty(password));
@@ -32,14 +33,17 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
     if (email && password) {
       try {
         setLoading(true);
+        setError(false);
         const response = await login(email, password);
         if (response) {
           await dispatch(setLoginData({ email, password, token: response }));
           navigate('/', { replace: true });
         } else {
+          setError(true);
           await dispatch(setLoginData({}));
         }
-      } catch (error) {
+      } catch (e) {
+        setError(true);
         await dispatch(setLoginData({}));
       }
       setLoading(false);
@@ -47,13 +51,21 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
   };
 
   if (loading) {
-    return <Loading width={128} height={128} color={colors.orange} />;
+    return <Loading width={96} height={96} color={colors.orange} />;
   }
 
   return (
     <Container width={width}>
       <Title>Login</Title>
-      <Input testID="email" type="email" placeholder="Email" value={email} onChange={setEmail} isObrigatory />
+      <Input
+        testID="email"
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={setEmail}
+        isObrigatory
+        error={error}
+      />
       <Input
         testID="password"
         type="password"
@@ -61,6 +73,7 @@ const Content: React.FC<Props> = ({ email, password, setEmail, setPassword }: Pr
         value={password}
         onChange={setPassword}
         isObrigatory
+        error={error}
       />
       <BottomContainer width={width}>
         <Button

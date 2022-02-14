@@ -11,14 +11,20 @@ export interface InputProps {
   marginLeft?: number;
 }
 
-export const BottomContainer = styled.div.attrs((props: Props) => ({
+export interface BottomProps {
+  width: number;
+  success: boolean;
+}
+
+export const BottomContainer = styled.div.attrs((props: BottomProps) => ({
   width: props.width,
-}))<Props>`
+  success: props.success,
+}))<BottomProps>`
   display: flex;
   flex: 1;
   width: 100%;
-  flex-direction: ${(props: Props): string => (props.width > 1000 ? 'row' : 'column')};
-  justify-content: flex-end;
+  flex-direction: ${(props: BottomProps): string => (props.width > 1000 ? 'row' : 'column')};
+  justify-content: ${(props: BottomProps): string => (props.success ? 'center' : 'flex-end')};
   align-items: center;
   margin-top: 16px;
 `;
@@ -38,7 +44,7 @@ export const Container = styled.div.attrs((props: Props) => ({
   width: ${(props: Props): string => (props.width > 1000 ? '25%' : '75%')};
 `;
 
-export const Text = styled.p`
+export const Text = styled.b`
   font-family: Inter;
   font-weight: regular;
   font-size: 1em;

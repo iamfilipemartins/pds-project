@@ -30,25 +30,25 @@ export const COUNTRY_DETAILS_INITIAL_STATE = {
   historico: '',
 };
 
+export const COUNTRY_SELECTED_INITIAL_STATE = {
+  ABBREV: '',
+  CONTINENT: '',
+  FORMAL_EN: '',
+  GDP_MD_EST: 0,
+  GDP_YEAR: 0,
+  ISO_A2: '',
+  ISO_A3: '',
+  NAME: '',
+  NAME_LONG: '',
+  POP_EST: 0,
+  POP_RANK: 0,
+  POP_YEAR: 0,
+  REGION_UN: '',
+  SUBREGION: '',
+};
+
 const initialState: CountryState = {
-  countrySelected: {
-    mapData: {
-      ABBREV: '',
-      CONTINENT: '',
-      FORMAL_EN: '',
-      GDP_MD_EST: 0,
-      GDP_YEAR: 0,
-      ISO_A2: '',
-      ISO_A3: '',
-      NAME: '',
-      NAME_LONG: '',
-      POP_EST: 0,
-      POP_RANK: 0,
-      POP_YEAR: 0,
-      REGION_UN: '',
-      SUBREGION: '',
-    },
-  },
+  countrySelected: COUNTRY_SELECTED_INITIAL_STATE,
   countryDetails: COUNTRY_DETAILS_INITIAL_STATE,
 };
 

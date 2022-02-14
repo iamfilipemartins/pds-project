@@ -5,7 +5,7 @@ import ReactTooltip from 'react-tooltip';
 import { useNavigate } from 'react-router-dom';
 import Flag from 'react-world-flags';
 import _ from 'lodash';
-import { ICountryMapData, setCountrySelected, setCountryDetails } from '../../redux/actions/countryActions';
+import { setCountrySelected, setCountryDetails, ICountrySelected } from '../../redux/actions/countryActions';
 import { AppState } from '../../redux/reducers/rootReducer';
 import MapChart from '../map/MapChart';
 import Header from '../../components/header';
@@ -78,7 +78,7 @@ const CountryDetails: React.FC = (): any => {
     setDisabled(_.isEmpty(editData.field) || _.isEmpty(editData.value));
   }, [editData]);
 
-  const handleSetCountry = async (countrySelectedOnMap: ICountryMapData) => {
+  const handleSetCountry = async (countrySelectedOnMap: ICountrySelected) => {
     try {
       setLoading(true);
       await dispatch(setCountrySelected(countrySelectedOnMap));

@@ -8,16 +8,23 @@ export interface Props {
   type?: string;
   isObrigatory?: boolean;
   testID?: string;
+  error?: boolean;
 }
 
-const Input: React.FC<Props> = ({ placeholder, value, onChange, type, isObrigatory, testID }: Props) => {
+const Input: React.FC<Props> = ({ placeholder, value, onChange, type, isObrigatory, testID, error }: Props) => {
   return (
     <Container>
       <Title>{`${placeholder}${isObrigatory ? ' *' : ''}`}</Title>
       {type ? (
-        <InputStyled data-testid={testID} type={type} value={value} onChange={(e: any) => onChange(e.target.value)} />
+        <InputStyled
+          error={error}
+          data-testid={testID}
+          type={type}
+          value={value}
+          onChange={(e: any) => onChange(e.target.value)}
+        />
       ) : (
-        <InputStyled data-testid={testID} value={value} onChange={(e: any) => onChange(e.target.value)} />
+        <InputStyled error={error} data-testid={testID} value={value} onChange={(e: any) => onChange(e.target.value)} />
       )}
     </Container>
   );
