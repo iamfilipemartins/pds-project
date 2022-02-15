@@ -1,8 +1,8 @@
 import { ConnectApiGet, ConnectApiPatch, urls } from '../../services';
 
 interface Body {
-  Campo: string;
-  Valor: string;
+  campo: string;
+  valor: string;
 }
 
 export const getCountryDetails = async (country: string): Promise<any> => {

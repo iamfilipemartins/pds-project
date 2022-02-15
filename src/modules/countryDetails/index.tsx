@@ -99,8 +99,8 @@ const CountryDetails: React.FC = (): any => {
     try {
       setLoading(true);
       await updateCountryDetails(editData.country, {
-        Campo: editData.field,
-        Valor: editData.value,
+        campo: editData.field,
+        valor: editData.value,
       });
       setIsEdit(false);
     } catch (error) {
