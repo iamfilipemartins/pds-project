@@ -47,6 +47,7 @@ const CountryDetails: React.FC = (): any => {
     value: '',
     country: '',
   });
+  const [error, setError] = useState(false);
   const { width } = useWindowDimensions();
 
   const dispatch = useDispatch();
@@ -76,6 +77,7 @@ const CountryDetails: React.FC = (): any => {
 
   useEffect(() => {
     setDisabled(_.isEmpty(editData.field) || _.isEmpty(editData.value));
+    setError(false);
   }, [editData]);
 
   const handleSetCountry = async (countrySelectedOnMap: ICountrySelected) => {
@@ -83,13 +85,9 @@ const CountryDetails: React.FC = (): any => {
       setLoading(true);
       await dispatch(setCountrySelected(countrySelectedOnMap));
       const response = await getCountryDetails(countrySelectedOnMap.ISO_A2);
-      if (response) {
-        await dispatch(setCountryDetails(response));
-        navigate(`/details/${countrySelectedOnMap.ISO_A2}`);
-      } else {
-        await dispatch(setCountryDetails(COUNTRY_DETAILS_INITIAL_STATE));
-      }
-    } catch (error) {
+      await dispatch(setCountryDetails(response));
+      navigate(`/details/${countrySelectedOnMap.ISO_A2}`);
+    } catch (e) {
       await dispatch(setCountryDetails(COUNTRY_DETAILS_INITIAL_STATE));
     }
     setLoading(false);
@@ -99,12 +97,13 @@ const CountryDetails: React.FC = (): any => {
     try {
       setLoading(true);
       await updateCountryDetails(editData.country, {
-        Campo: editData.field,
-        Valor: editData.value,
+        campo: editData.field,
+        valor: editData.value,
       });
       setIsEdit(false);
-    } catch (error) {
+    } catch (e) {
       window.scrollTo(0, 0);
+      setError(true);
     }
     setLoading(false);
   };
@@ -152,6 +151,7 @@ const CountryDetails: React.FC = (): any => {
               placeholder="Campo"
               options={fieldsOptionsToEdit}
               handleChange={handleFieldSelection}
+              error={error}
             />
             <Input
               testID="value"
@@ -162,6 +162,7 @@ const CountryDetails: React.FC = (): any => {
                 setEditData({ ...editData, value: v });
               }}
               isObrigatory
+              error={error}
             />
             <BottomContainer width={width}>
               <Button

@@ -20,7 +20,7 @@ export const headerRequests = async (): Promise<any> => {
   return token
     ? {
         'Content-Type': 'application/json',
-        Authentication: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       }
     : {
         'Content-Type': 'application/json',

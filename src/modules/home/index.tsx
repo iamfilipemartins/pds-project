@@ -38,13 +38,9 @@ const Home: React.FC = (): any => {
       setLoading(true);
       await dispatch(setCountrySelected(countrySelectedOnMap));
       const response = await getCountryDetails(countrySelectedOnMap.ISO_A2);
-      if (response) {
-        await dispatch(setCountryDetails(response));
-        setLoading(false);
-        navigate(`/details/${countrySelectedOnMap.ISO_A2}`);
-      } else {
-        await dispatch(setCountryDetails(COUNTRY_DETAILS_INITIAL_STATE));
-      }
+      await dispatch(setCountryDetails(response));
+      setLoading(false);
+      navigate(`/details/${countrySelectedOnMap.ISO_A2}`);
     } catch (error) {
       await dispatch(setCountryDetails(COUNTRY_DETAILS_INITIAL_STATE));
     }

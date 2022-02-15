@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Signup /> should display a blank signup form, with remember me checked by default 1`] = `
+<div
+  class="sc-gsDKAQ iFzJiF"
+  data-testid="signup"
+>
+  <div
+    class="sc-dkPtRN crvUag"
+    width="1024"
+  >
+    <img
+      class="sc-bdvvtL"
+    />
+    <h1
+      class="sc-hKwDye gGnQLo"
+      width="1024"
+    >
+      Geolog
+    </h1>
+  </div>
+  <div
+    class="sc-furwcr anivc"
+    width="1024"
+  >
+    <h1
+      class="sc-jrQzAO gfpuAK"
+    >
+      Criar conta
+    </h1>
+    <div
+      class="sc-kDTinF bInWyk"
+    >
+      <p
+        class="sc-crHmcD dKnwJW"
+      >
+        Email *
+      </p>
+      <input
+        class="sc-iqseJM dhtnqU"
+        data-testid="email"
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-kDTinF bInWyk"
+    >
+      <p
+        class="sc-crHmcD dKnwJW"
+      >
+        Senha *
+      </p>
+      <input
+        class="sc-iqseJM dhtnqU"
+        data-testid="password"
+        type="password"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-iCfMLu iBhzdD"
+      width="1024"
+    >
+      <div
+        class="sc-egiyK"
+      >
+        <button
+          class="sc-bqiRlB dpOhwe"
+          color="#FFFFFF"
+          disabled=""
+        >
+          Cadastrar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="sc-eCImPb iCHfyu"
+    width="1024"
+  >
+    <p
+      class="sc-jRQBWg dEaWjf"
+    >
+      Já possui uma conta?
+    </p>
+    <p
+      class="sc-gKclnd kKqYGw"
+    >
+      Entrar
+    </p>
+  </div>
+</div>
+`;
