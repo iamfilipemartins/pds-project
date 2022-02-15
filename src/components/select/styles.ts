@@ -5,7 +5,6 @@ export interface Props {
   error: boolean;
 }
 
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
