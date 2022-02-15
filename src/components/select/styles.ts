@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { colors } from '../../utils';
 
 export interface Props {
-  width: number;
+  error: boolean;
 }
+
 
 export const Container = styled.div`
   display: flex;
@@ -13,7 +14,9 @@ export const Container = styled.div`
   flex: 1;
 `;
 
-export const Select = styled.select`
+export const Select = styled.select.attrs((props: Props) => ({
+  error: props.error,
+}))<Props>`
   width: 100%;
   height: 38px;
   background: white;
@@ -22,7 +25,7 @@ export const Select = styled.select`
   font-family: Inter;
   font-size: 1em;
   line-height: 1.2em;
-  border: 1px solid ${colors.grey200};
+  border: 1px solid ${(props: Props): string => (props.error ? colors.orange : colors.grey200)};
   border-radius: 3px;
   flex-direction: row;
 
